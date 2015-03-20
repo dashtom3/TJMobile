@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="35E-Mx-9vL" customClass="MasterView" customModule="TJMobile" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="326" height="581"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ijm-zd-u8C">
+                    <rect key="frame" x="0.0" y="0.0" width="326" height="64"/>
+                    <color key="backgroundColor" red="0.98039215686274506" green="0.61568627450980395" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="gKK-ZI-GDL"/>
+                    </constraints>
+                </imageView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="OK5-cI-AXQ">
+                    <rect key="frame" x="0.0" y="104" width="326" height="477"/>
+                    <collectionViewLayout key="collectionViewLayout" id="gOa-jE-7qr" customClass="MasterCollectionLayout" customModule="TJMobile" customModuleProvider="target"/>
+                    <connections>
+                        <outlet property="dataSource" destination="35E-Mx-9vL" id="sn5-kV-KLF"/>
+                        <outlet property="delegate" destination="35E-Mx-9vL" id="z8b-FO-WOr"/>
+                    </connections>
+                </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5k-B0-nDh">
+                    <rect key="frame" x="8" y="24" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="nKV-ry-6Iw"/>
+                        <constraint firstAttribute="width" constant="32" id="yEI-mT-6kN"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="master_topLeft">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="showLeftView:" destination="35E-Mx-9vL" eventType="touchUpInside" id="xOD-zb-US5"/>
+                    </connections>
+                </button>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9tu-4Y-eGc">
+                    <rect key="frame" x="0.0" y="64" width="326" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="UiK-Bl-VrD"/>
+                    </constraints>
+                </imageView>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="master_title" translatesAutoresizingMaskIntoConstraints="NO" id="X7V-cb-DW6">
+                    <rect key="frame" x="122" y="32" width="82" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="Jcp-6l-wqB"/>
+                        <constraint firstAttribute="width" constant="82" id="V5g-AX-A3v"/>
+                    </constraints>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="搜索" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PIV-fd-9y4">
+                    <rect key="frame" x="40" y="69" width="269" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="searchChanged:" destination="35E-Mx-9vL" eventType="editingChanged" id="nsv-yL-jMW"/>
+                        <action selector="searchEnd:" destination="35E-Mx-9vL" eventType="editingDidEnd" id="bWh-Ua-vqT"/>
+                        <action selector="searchExit:" destination="35E-Mx-9vL" eventType="editingDidEndOnExit" id="EwP-9G-G44"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="0.84705882352941175" green="0.85098039215686272" blue="0.89411764705882357" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Ijm-zd-u8C" secondAttribute="trailing" id="2mI-6g-Uk2"/>
+                <constraint firstAttribute="bottom" secondItem="OK5-cI-AXQ" secondAttribute="bottom" id="959-G9-yAr"/>
+                <constraint firstAttribute="trailing" secondItem="9tu-4Y-eGc" secondAttribute="trailing" id="EA8-RR-G6x"/>
+                <constraint firstItem="OK5-cI-AXQ" firstAttribute="leading" secondItem="35E-Mx-9vL" secondAttribute="leading" id="Hrg-ey-Fu1"/>
+                <constraint firstItem="C5k-B0-nDh" firstAttribute="top" secondItem="35E-Mx-9vL" secondAttribute="top" constant="24" id="TYN-9v-y31"/>
+                <constraint firstItem="PIV-fd-9y4" firstAttribute="leading" secondItem="35E-Mx-9vL" secondAttribute="leading" constant="40" id="V1l-Rq-seq"/>
+                <constraint firstItem="OK5-cI-AXQ" firstAttribute="top" secondItem="35E-Mx-9vL" secondAttribute="top" constant="104" id="Xdc-Kd-xMl"/>
+                <constraint firstItem="Ijm-zd-u8C" firstAttribute="leading" secondItem="35E-Mx-9vL" secondAttribute="leading" id="Xdv-DI-SOv"/>
+                <constraint firstItem="9tu-4Y-eGc" firstAttribute="leading" secondItem="35E-Mx-9vL" secondAttribute="leading" id="Xm9-lq-dZ7"/>
+                <constraint firstItem="Ijm-zd-u8C" firstAttribute="top" secondItem="35E-Mx-9vL" secondAttribute="top" id="YBM-YI-RLF"/>
+                <constraint firstAttribute="trailing" secondItem="PIV-fd-9y4" secondAttribute="trailing" constant="17" id="Z3m-iX-Q0O"/>
+                <constraint firstItem="X7V-cb-DW6" firstAttribute="top" secondItem="35E-Mx-9vL" secondAttribute="top" constant="32" id="crw-VD-hZh"/>
+                <constraint firstItem="OK5-cI-AXQ" firstAttribute="top" secondItem="PIV-fd-9y4" secondAttribute="bottom" constant="5" id="ins-Pp-N0I"/>
+                <constraint firstItem="9tu-4Y-eGc" firstAttribute="top" secondItem="35E-Mx-9vL" secondAttribute="top" constant="64" id="kEG-Eb-mCS"/>
+                <constraint firstItem="PIV-fd-9y4" firstAttribute="top" secondItem="Ijm-zd-u8C" secondAttribute="bottom" constant="5" id="lBt-Jl-HKl"/>
+                <constraint firstItem="C5k-B0-nDh" firstAttribute="leading" secondItem="35E-Mx-9vL" secondAttribute="leading" constant="8" id="m7q-VX-zlD"/>
+                <constraint firstAttribute="centerX" secondItem="X7V-cb-DW6" secondAttribute="centerX" id="whG-6J-9Os"/>
+                <constraint firstAttribute="trailing" secondItem="OK5-cI-AXQ" secondAttribute="trailing" id="zai-6p-tZa"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="collectionView" destination="OK5-cI-AXQ" id="D2k-w4-QkY"/>
+                <outlet property="search" destination="PIV-fd-9y4" id="LZc-zI-rDe"/>
+                <outlet property="searchImage" destination="9tu-4Y-eGc" id="P1X-Cv-TEU"/>
+            </connections>
+            <point key="canvasLocation" x="266" y="434.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="master_title" width="164" height="32"/>
+        <image name="master_topLeft" width="71" height="67"/>
+    </resources>
+</document>

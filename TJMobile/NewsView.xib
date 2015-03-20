@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="UQR-Fn-jsj" customClass="NewsView" customModule="TJMobile" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cMG-Aa-np0">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                    <color key="backgroundColor" red="0.98039215690000003" green="0.61568627450000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="b3C-Fq-fnY"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxA-OA-zrX">
+                    <rect key="frame" x="8" y="24" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="JTO-C4-AiD"/>
+                        <constraint firstAttribute="height" constant="32" id="Kly-bD-Zxw"/>
+                    </constraints>
+                    <state key="normal" image="master_topLeft">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="showLeftView:" destination="UQR-Fn-jsj" eventType="touchUpInside" id="Ntk-L4-y64"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更多内容即将上线" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMs-bb-WYi">
+                    <rect key="frame" x="102" y="72" width="396" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="396" id="kSQ-30-oPH"/>
+                        <constraint firstAttribute="height" constant="40" id="uDF-so-3QE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="master_title" translatesAutoresizingMaskIntoConstraints="NO" id="iSg-Gc-p9u">
+                    <rect key="frame" x="259" y="32" width="82" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="Kxw-Vl-Ze0"/>
+                        <constraint firstAttribute="width" constant="82" id="deR-s7-IpQ"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="tMs-bb-WYi" firstAttribute="top" secondItem="cMG-Aa-np0" secondAttribute="bottom" constant="8" id="7VW-rO-XxO"/>
+                <constraint firstAttribute="trailing" secondItem="cMG-Aa-np0" secondAttribute="trailing" id="8kS-Dj-DYq"/>
+                <constraint firstAttribute="centerX" secondItem="iSg-Gc-p9u" secondAttribute="centerX" id="AR9-cc-Z3Y"/>
+                <constraint firstItem="cMG-Aa-np0" firstAttribute="leading" secondItem="UQR-Fn-jsj" secondAttribute="leading" id="FRI-p3-eps"/>
+                <constraint firstItem="wxA-OA-zrX" firstAttribute="top" secondItem="UQR-Fn-jsj" secondAttribute="top" constant="24" id="SjA-HY-zxW"/>
+                <constraint firstItem="wxA-OA-zrX" firstAttribute="leading" secondItem="UQR-Fn-jsj" secondAttribute="leading" constant="8" id="U1d-La-L1g"/>
+                <constraint firstAttribute="centerX" secondItem="tMs-bb-WYi" secondAttribute="centerX" id="kJT-bF-p0b"/>
+                <constraint firstItem="iSg-Gc-p9u" firstAttribute="top" secondItem="UQR-Fn-jsj" secondAttribute="top" constant="32" id="pMX-8b-EvY"/>
+                <constraint firstItem="cMG-Aa-np0" firstAttribute="top" secondItem="UQR-Fn-jsj" secondAttribute="top" id="qOH-Yg-7Ta"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="523" y="348"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="master_title" width="164" height="32"/>
+        <image name="master_topLeft" width="71" height="67"/>
+    </resources>
+</document>

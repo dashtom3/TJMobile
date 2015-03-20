@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="KGk-i7-Jjw" customClass="BusTicketCell" customModule="TJMobile" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2014年10月16日 星期四  10:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUc-e1-d4Y">
+                        <rect key="frame" x="12" y="10" width="280" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="280" id="LSt-Pl-nWn"/>
+                            <constraint firstAttribute="height" constant="20" id="OtJ-db-mWe"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="到" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEd-tm-cba">
+                        <rect key="frame" x="145" y="52" width="30" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="i5i-tx-GZk"/>
+                            <constraint firstAttribute="height" constant="20" id="wiP-Ko-WRe"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="嘉定校区" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6p8-gU-4Oy">
+                        <rect key="frame" x="112" y="40" width="200" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="200" id="Q02-tP-LEF"/>
+                            <constraint firstAttribute="height" constant="40" id="Rr5-CP-DmK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="四平路校区" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SW7-gp-uWk">
+                        <rect key="frame" x="12" y="40" width="120" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="HCY-yN-NA4"/>
+                            <constraint firstAttribute="width" constant="120" id="wAB-oS-fs8"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="6p8-gU-4Oy" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Njr-hj-uKN"/>
+                    <constraint firstAttribute="centerX" secondItem="uEd-tm-cba" secondAttribute="centerX" id="YBU-0P-Nu1"/>
+                    <constraint firstItem="SW7-gp-uWk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="40" id="a0L-jb-Ogu"/>
+                    <constraint firstItem="uEd-tm-cba" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="44" id="hVN-IJ-eYF"/>
+                    <constraint firstItem="6p8-gU-4Oy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="40" id="iJr-hY-0Xl"/>
+                    <constraint firstItem="CUc-e1-d4Y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="imq-qY-mjT"/>
+                    <constraint firstItem="SW7-gp-uWk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="pMV-zY-KfN"/>
+                    <constraint firstItem="CUc-e1-d4Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="qPf-Vy-FVL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.98039215690000003" green="0.61568627450000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="labelBusFrom" destination="SW7-gp-uWk" id="6xC-yU-JIF"/>
+                <outlet property="labelBusTo" destination="6p8-gU-4Oy" id="Ode-Q6-xLV"/>
+                <outlet property="labelDAO" destination="uEd-tm-cba" id="NV2-8W-22V"/>
+                <outlet property="labelTime" destination="CUc-e1-d4Y" id="PDj-cP-QJv"/>
+            </connections>
+            <point key="canvasLocation" x="436" y="339"/>
+        </tableViewCell>
+    </objects>
+</document>
