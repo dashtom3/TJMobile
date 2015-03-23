@@ -26,8 +26,7 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
         RIGHT_FRAME = viewFrame(firstFrame: CGRectMake(0,0,self.view.frame.width,self.view.frame.height), secondFrame: CGRectMake(self.view.frame.width-48,0,self.view.frame.width,self.view.frame.height))
         
         leftView = NSBundle.mainBundle().loadNibNamed("LeftView", owner: nil, options: nil)[0] as LeftView
-        leftView.frame = LEFT_FRAME.firstFrame
-        leftView.alpha = 0.0
+        leftView.frame = LEFT_FRAME.secondFrame
         leftView.delegate = self
         //leftView.frame = CGRectMake(0,0,550,self.view.frame.height)
         self.view.addSubview(leftView)
@@ -48,9 +47,7 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
         leftView.refresh()
 
     }
-    override func viewDidAppear(animated: Bool) {
-        leftView.alpha = 1.0
-    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -182,28 +179,24 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
     }
     @IBAction func panGesture(sender: AnyObject) {
         if(sender.state == UIGestureRecognizerState.Began){
-            pointLeftX = leftView.center.x-sender.locationInView(self.view).x
             pointRightX = masterView.center.x - sender.locationInView(self.view).x
         }
         if(sender.state == UIGestureRecognizerState.Changed){
-            if(leftView.center.x-leftView.frame.width/2<=0&&leftView.center.x+leftView.frame.width/2>=0){
-                if(pointLeftX+sender.locationInView(self.view).x+leftView.frame.width/2<0){
-                    leftView.center = CGPointMake((-1)*(leftView.frame.width/2),leftView.center.y)
+            if(masterView.center.x-masterView.frame.width/2>=0&&masterView.center.x-masterView.frame.width/2-leftView.frame.width<=0){
+                if(pointRightX+sender.locationInView(self.view).x-masterView.frame.width/2<0){
                     masterView.center = CGPointMake(masterView.frame.width/2, masterView.center.y)
                     newsView.center = masterView.center
-                }else if(pointLeftX+sender.locationInView(self.view).x-leftView.frame.width/2>0){
-                    leftView.center = CGPointMake(leftView.frame.width/2,leftView.center.y)
+                }else if(pointRightX+sender.locationInView(self.view).x-masterView.frame.width/2-leftView.frame.width>0){
                     masterView.center = CGPointMake(leftView.frame.width+masterView.frame.width/2,masterView.center.y)
                     newsView.center = masterView.center
                 }else{
-                    leftView.center = CGPointMake(pointLeftX+sender.locationInView(self.view).x,leftView.center.y)
                     masterView.center = CGPointMake(pointRightX+sender.locationInView(self.view).x, masterView.center.y)
                     newsView.center = masterView.center
                 }
             }
         }
         if(sender.state == UIGestureRecognizerState.Ended){
-            if(leftView.center.x<0){
+            if(masterView.center.x-self.view.frame.width<0){
                 LeftAnimation(0)
             }else{
                 LeftAnimation(1)
@@ -216,11 +209,9 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
         UIView.setAnimationCurve(UIViewAnimationCurve.EaseInOut)
         UIView.setAnimationDelegate(self)
         if(num==0){
-            leftView.frame = LEFT_FRAME.firstFrame
             masterView.frame = RIGHT_FRAME.firstFrame
             newsView.frame = RIGHT_FRAME.firstFrame
         }else if(num==1){
-            leftView.frame = LEFT_FRAME.secondFrame
             masterView.frame = RIGHT_FRAME.secondFrame
             newsView.frame = RIGHT_FRAME.secondFrame
         }
