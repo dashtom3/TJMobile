@@ -30,10 +30,10 @@ class LoginView: UIView {
         delegate?.back();
     }
     @IBAction func inputUserBegin(sender: AnyObject) {
-        username.textAlignment = NSTextAlignment.Left
+        username.textAlignment = NSTextAlignment.Center
     }
     @IBAction func inputPasswordBegin(sender: AnyObject) {
-        password.textAlignment = NSTextAlignment.Left
+        password.textAlignment = NSTextAlignment.Center
     }
     @IBAction func inputUserEnd(sender: AnyObject) {
         username.textAlignment = NSTextAlignment.Center

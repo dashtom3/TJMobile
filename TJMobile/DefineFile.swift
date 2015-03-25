@@ -55,14 +55,14 @@ var BLUE_CARD = collectionViewData(labelName: "移动图书馆", picName: "maste
 var GRAY_CARD = collectionViewData(labelName: "校友会", picName: "master_3",visable:1)
 var PINK_CARD = collectionViewData(labelName: "教师办公系统", picName: "master_4",visable:1)
 var YELLOW_CARD = collectionViewData(labelName: "同济官方", picName: "master_5",visable:1)
-var DARKGREEN_CARD = collectionViewData(labelName: "青春同济微信号", picName: "master_6",visable:1)
+var DARKGREEN_CARD = collectionViewData(labelName: "青春同济", picName: "master_6",visable:1)
 var RED_CARD = collectionViewData(labelName: "POI", picName: "master_7",visable:2)
 var BROWN_CARD = collectionViewData(labelName: "办事指南", picName: "master_8",visable:2)
 var DARKBLUE_CARD = collectionViewData(labelName: "校园通讯录", picName: "master_9",visable:2)
 var PINKRED_CARD = collectionViewData(labelName: "个人信息中心", picName: "master_10",visable:2)
 var cards = [GREEN_CARD,BLUE_CARD,GRAY_CARD,PINK_CARD,YELLOW_CARD,DARKGREEN_CARD,RED_CARD,BROWN_CARD,DARKBLUE_CARD,PINKRED_CARD]
 
-let LEFT_LIST = ["同济应用","同济资讯","联系我们","关于"]
+let LEFT_LIST = ["同济应用","同济资讯"]
 var TICKET = ticket(num: 0, tickets: [])
 let SCHOOL = ["四平校区","嘉定校区","同济北苑","沪西校区","曹杨八村"]
 var selectNum:[Int] = [0,0,0]

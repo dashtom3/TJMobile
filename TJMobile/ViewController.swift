@@ -81,6 +81,11 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
             break
         }
     }
+    func presentSettingViewController(){
+        //var nav = UINavigationController(rootViewController:self.storyboard?.instantiateViewControllerWithIdentifier("setting") as SettingViewController)
+
+        self.presentViewController(self.storyboard?.instantiateViewControllerWithIdentifier("nav")  as UIViewController, animated: true, completion: nil)
+    }
     func presentUserViewController() {
         self.presentViewController(self.storyboard?.instantiateViewControllerWithIdentifier("user") as UserViewController, animated: true, completion: nil)
     }
@@ -101,11 +106,11 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
             }
             break
         case 1:
-            var actionSheet = UIActionSheet(title: cards[num].labelName, delegate: self, cancelButtonTitle: "取 消", destructiveButtonTitle: nil, otherButtonTitles: "主 页", "微 信","微 博","掌上图书馆")
+            var actionSheet = UIActionSheet(title: cards[num].labelName, delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles: "主页", "微信","微博","掌上图书馆")
             actionSheet.showInView(self.view)
             break
         case 2:
-            var actionSheet = UIActionSheet(title: cards[num].labelName, delegate: self, cancelButtonTitle: "取 消", destructiveButtonTitle: nil, otherButtonTitles: "主 页","微 信", "微 博")
+            var actionSheet = UIActionSheet(title: cards[num].labelName, delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles: "主页","微信", "微博")
             actionSheet.showInView(self.view)
             break
         case 3:
@@ -118,12 +123,13 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
             self.refresh()
             break
         case 4:
-            var actionSheet = UIActionSheet(title: cards[num].labelName, delegate: self, cancelButtonTitle: "取 消", destructiveButtonTitle: nil, otherButtonTitles: "主 页", "微 博")
+            var actionSheet = UIActionSheet(title: cards[num].labelName, delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles: "主页", "微博")
             actionSheet.showInView(self.view)
             break
         case 5:
-            var alert = UIAlertView(title: "青春同济微信号", message: "qctjwx", delegate: self, cancelButtonTitle: "确定")
-            alert.show()
+            var weiXinViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weixin") as WeiXinViewController
+            self.presentViewController(weiXinViewController, animated: true, completion: nil)
+            weiXinViewController.setStyle(5)
             self.refresh()
         default:
             break
@@ -137,9 +143,9 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
                 var url = NSURL(string: "http://www.lib.tongji.edu.cn/site/tongji/index.html")
                 UIApplication.sharedApplication().openURL(url!)
             }else if(buttonIndex == 2){
-                var alert = UIAlertView(title: "微信号", message: "tongjilib", delegate: self, cancelButtonTitle: "确定")
-                alert.show()
-                self.refresh()
+                var weiXinViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weixin") as WeiXinViewController
+                self.presentViewController(weiXinViewController, animated: true, completion: nil)
+                weiXinViewController.setStyle(1)
             }else if(buttonIndex == 3){
                 var url = NSURL(string: "http://weibo.com/tongjiunivlibrary")
                 UIApplication.sharedApplication().openURL(url!)
@@ -153,9 +159,9 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
                 var url = NSURL(string: "http://www.tongjiren.org/")
                 UIApplication.sharedApplication().openURL(url!)
             }else if(buttonIndex == 2){
-                var alert = UIAlertView(title: "微信号", message: "TONGJI-xyh", delegate: self, cancelButtonTitle: "确定")
-                alert.show()
-                self.refresh()
+                var weiXinViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weixin") as WeiXinViewController
+                self.presentViewController(weiXinViewController, animated: true, completion: nil)
+                weiXinViewController.setStyle(2)
             }else if(buttonIndex == 3){
                 var url = NSURL(string: "http://weibo.com/tongjiren")
                 UIApplication.sharedApplication().openURL(url!)

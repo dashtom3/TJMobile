@@ -11,6 +11,7 @@ protocol LeftViewDelegate:NSObjectProtocol{
     func presentUserViewController()
     func showMasterView(num:Int)
     func showLoginViewController()
+    func presentSettingViewController()
 }
 class LeftView: UIView,UITableViewDelegate,UITableViewDataSource {
 
@@ -36,6 +37,9 @@ class LeftView: UIView,UITableViewDelegate,UITableViewDataSource {
         userImage.layer.masksToBounds = true
         userImage.layer.cornerRadius = 50
         self.refresh()
+    }
+    @IBAction func presentSettingView(sender: AnyObject) {
+        delegate?.presentSettingViewController()
     }
     @IBAction func presentUserView(sender: AnyObject) {
         if(NSUserDefaults.standardUserDefaults().valueForKey("login") as NSString == "1"){

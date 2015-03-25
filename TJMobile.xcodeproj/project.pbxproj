@@ -39,10 +39,13 @@
 		12CD52A01AB6BFE700FBE09F /* NewsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CD529F1AB6BFE700FBE09F /* NewsView.xib */; };
 		12CEB8AF1A9F779900BCC63A /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CEB8AE1A9F779900BCC63A /* DateConverter.swift */; };
 		12CF7B5F1A7BAB6A008009A2 /* LoginUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF7B5E1A7BAB6A008009A2 /* LoginUserViewController.swift */; };
+		12CF92C81AC2A7CC00C01E46 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF92C71AC2A7CC00C01E46 /* AboutViewController.swift */; };
+		12CF92CA1AC2CC4600C01E46 /* WeiXinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF92C91AC2CC4600C01E46 /* WeiXinViewController.swift */; };
 		12D351C91A474212003465FC /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D351C81A474212003465FC /* UserViewController.swift */; };
 		12D41B821AA97ED200F56CD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D41B811AA97ED200F56CD2 /* Images.xcassets */; };
 		12D71B721A970ED3004D79D9 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D71B711A970ED3004D79D9 /* LoginView.xib */; };
 		12D71B751A974A77004D79D9 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D71B741A974A77004D79D9 /* HttpRequest.swift */; };
+		12E468BC1AC145DE00E10CB0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E468BB1AC145DE00E10CB0 /* SettingViewController.swift */; };
 		12FA2D571A47EF9E00276F31 /* BusMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FA2D561A47EF9E00276F31 /* BusMainViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,10 +96,13 @@
 		12CD529F1AB6BFE700FBE09F /* NewsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsView.xib; sourceTree = "<group>"; };
 		12CEB8AE1A9F779900BCC63A /* DateConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		12CF7B5E1A7BAB6A008009A2 /* LoginUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUserViewController.swift; sourceTree = "<group>"; };
+		12CF92C71AC2A7CC00C01E46 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		12CF92C91AC2CC4600C01E46 /* WeiXinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiXinViewController.swift; sourceTree = "<group>"; };
 		12D351C81A474212003465FC /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		12D41B811AA97ED200F56CD2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		12D71B711A970ED3004D79D9 /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		12D71B741A974A77004D79D9 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		12E468BB1AC145DE00E10CB0 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		12FA2D561A47EF9E00276F31 /* BusMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusMainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,6 +238,9 @@
 				12CC91B21A483B920033B359 /* BusTimeViewController.swift */,
 				122A15ED1A498EAB00519645 /* BusTicketViewController.swift */,
 				12CF7B5E1A7BAB6A008009A2 /* LoginUserViewController.swift */,
+				12E468BB1AC145DE00E10CB0 /* SettingViewController.swift */,
+				12CF92C71AC2A7CC00C01E46 /* AboutViewController.swift */,
+				12CF92C91AC2CC4600C01E46 /* WeiXinViewController.swift */,
 			);
 			name = "view controller";
 			sourceTree = "<group>";
@@ -372,6 +381,7 @@
 				122A15EB1A495D8C00519645 /* BusTimeCell.swift in Sources */,
 				1274416A1A42DD0C004EC3AE /* AppDelegate.swift in Sources */,
 				12CD529E1AB6BFCC00FBE09F /* NewsView.swift in Sources */,
+				12E468BC1AC145DE00E10CB0 /* SettingViewController.swift in Sources */,
 				12CC91A61A47F6020033B359 /* BusTicketCell.swift in Sources */,
 				127441A11A42EACC004EC3AE /* DefineFile.swift in Sources */,
 				122A15EE1A498EAB00519645 /* BusTicketViewController.swift in Sources */,
@@ -385,7 +395,9 @@
 				12CC91B11A482F7F0033B359 /* BusToViewController.swift in Sources */,
 				12CC91B31A483B920033B359 /* BusTimeViewController.swift in Sources */,
 				126B5B0D1A909A5E00D91229 /* LoginView.swift in Sources */,
+				12CF92C81AC2A7CC00C01E46 /* AboutViewController.swift in Sources */,
 				127441931A42DFE4004EC3AE /* LeftView.swift in Sources */,
+				12CF92CA1AC2CC4600C01E46 /* WeiXinViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

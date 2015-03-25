@@ -24,7 +24,7 @@ class MasterCollectionViewCell: UICollectionViewCell {
             self.alpha = 1.0
             break
         case 2:
-            self.alpha = 0.2
+            self.alpha = 0.5
             break
         default:
             break;
