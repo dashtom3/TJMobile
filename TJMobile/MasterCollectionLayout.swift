@@ -28,7 +28,7 @@ class MasterCollectionLayout: UICollectionViewLayout {
         return cells;
     }
     override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
-        return true
+        return false
     }
     override func collectionViewContentSize() -> CGSize {
         println(collectionView?.frame)

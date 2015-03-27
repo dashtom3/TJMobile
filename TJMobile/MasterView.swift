@@ -11,13 +11,14 @@ protocol MasterViewDelegate:NSObjectProtocol{
     func showLeftView()
     func pushViewController(num:Int)
 }
-class MasterView: UIView, UICollectionViewDataSource,UICollectionViewDelegate{
+class MasterView: UIView, UICollectionViewDataSource,UICollectionViewDelegate,UISearchBarDelegate{
 
     @IBOutlet weak var collectionView: UICollectionView!
     var delegate:MasterViewDelegate?
 
-    @IBOutlet weak var search: UITextField!
-    @IBOutlet weak var searchImage: UIImageView!
+    @IBOutlet weak var search: UISearchBar!
+//    @IBOutlet weak var search: UITextField!
+//    @IBOutlet weak var searchImage: UIImageView!
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -28,7 +29,17 @@ class MasterView: UIView, UICollectionViewDataSource,UICollectionViewDelegate{
     override func awakeFromNib(){
          collectionView.backgroundColor = UIColor.clearColor()
          collectionView.registerNib(UINib(nibName:"MasterCollectionViewCell",bundle:nil),forCellWithReuseIdentifier:"MasterCell")
-        searchImage.image = UIImage(named: "master_search")?.resizableImageWithCapInsets(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), resizingMode: UIImageResizingMode.Stretch)
+//        searchImage.image = UIImage(named: "master_search")?.resizableImageWithCapInsets(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), resizingMode: UIImageResizingMode.Stretch)
+    }
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        self.searchItemShow(search.text)
+    }
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchItemShow(search.text)
+    }
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.searchItemShow(search.text)
+        search.resignFirstResponder()
     }
     @IBAction func showLeftView(sender: AnyObject) {
         delegate?.showLeftView()

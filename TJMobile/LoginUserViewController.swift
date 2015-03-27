@@ -39,7 +39,8 @@ class LoginUserViewController: UIViewController,UserLoginDelegate,HttpDelegate {
         httpRequest.servletLoginUser(loginView.username.text, password: loginView.password.text, weekend: "0")
     }
     func back() {
-        self.navigationController?.popViewControllerAnimated(true)
+        //self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("master") as ViewController, animated: true)
     }
     func infoReturn(recallNum:Int){
         switch recallNum{

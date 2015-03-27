@@ -7,13 +7,17 @@
 //
 
 import UIKit
-
+enum PIC{
+    case PERSON
+    case BACKGROUND
+}
 class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     //var title = ["常住校区","寝室","用户头像","封面","退出登录"]
     let userTitle = [["常住校区","寝室"],["用户头像","封面"],["退出登录"]]
     let detailTitle = ["四平路校区","西南八楼437"]
-
+    var changePic = PIC.PERSON
     @IBOutlet weak var userImage: UIButton!
+    @IBOutlet weak var userBg: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         userImage.layer.masksToBounds = true
@@ -24,13 +28,21 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewWillAppear(animated: Bool) {
         var userDefaults = NSUserDefaults.standardUserDefaults()
         var imageData:NSData? = userDefaults.valueForKey("userImage") as NSData?
+        var imageData2:NSData? = userDefaults.valueForKey("userBG") as NSData?
         if(imageData?.length>0){
             var image  = NSKeyedUnarchiver.unarchiveObjectWithData(imageData!) as UIImage
             userImage.setBackgroundImage(image, forState: UIControlState.Normal)
         }else{
             userImage.setBackgroundImage(UIImage(named: "user_pic"), forState: UIControlState.Normal)
         }
+        if(imageData2?.length>0){
+            var image  = NSKeyedUnarchiver.unarchiveObjectWithData(imageData2!) as UIImage
+            userBg.setBackgroundImage(image, forState: UIControlState.Normal)
+        }else{
+            userBg.setBackgroundImage(UIImage(named: "user_bg"), forState: UIControlState.Normal)
+        }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -39,8 +51,12 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBAction func closeLogin(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
+    @IBAction func changeUserBG(sender: AnyObject) {
+        changePic = PIC.BACKGROUND
+        self.changePersonPic()
+    }
     @IBAction func changePic(sender: AnyObject) {
+        changePic = PIC.PERSON
         self.changePersonPic()
     }
     func changePersonPic(){
@@ -51,8 +67,13 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         var userDefault = NSUserDefaults.standardUserDefaults()
-        userDefault.setObject(NSKeyedArchiver.archivedDataWithRootObject(image), forKey: "userImage")
-        userImage.imageView?.image = image
+        if(changePic == PIC.PERSON){
+            userDefault.setObject(NSKeyedArchiver.archivedDataWithRootObject(image), forKey: "userImage")
+            userImage.imageView?.image = image
+        }else{
+            userDefault.setObject(NSKeyedArchiver.archivedDataWithRootObject(image), forKey: "userBG")
+            userBg.imageView?.image = image
+        }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     /*
@@ -112,6 +133,15 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
     {
+        if(indexPath.section == 1){
+            if(indexPath.row == 0){
+                changePic = PIC.PERSON
+                self.changePersonPic()
+            }else{
+                changePic = PIC.BACKGROUND
+                self.changePersonPic()
+            }
+        }
         if(indexPath.section == 2){
             NSUserDefaults.standardUserDefaults().setObject("0", forKey: "login")
             self.dismissViewControllerAnimated(true, completion: nil)

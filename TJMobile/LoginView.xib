@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,7 +10,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="    密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vyN-4I-rlH">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vyN-4I-rlH">
                     <rect key="frame" x="0.0" y="100" width="600" height="48"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -20,6 +20,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <connections>
+                        <action selector="inputPassReturn:" destination="cSf-Bg-CFM" eventType="editingDidEndOnExit" id="mWb-Dx-CFe"/>
                         <action selector="inputPasswordBegin:" destination="cSf-Bg-CFM" eventType="editingDidBegin" id="736-qS-x2C"/>
                         <action selector="inputPasswordEnd:" destination="cSf-Bg-CFM" eventType="editingDidEnd" id="377-di-LJb"/>
                     </connections>
@@ -43,7 +44,7 @@
                         <constraint firstAttribute="height" constant="48" id="7Aj-vR-Teh"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <state key="normal" title="返回">
+                    <state key="normal" title="暂不登陆">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -51,7 +52,7 @@
                         <action selector="back:" destination="cSf-Bg-CFM" eventType="touchUpInside" id="IwU-2d-YEc"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="    学号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WkW-Fw-GAL">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="学号" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WkW-Fw-GAL">
                     <rect key="frame" x="0.0" y="52" width="600" height="48"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -63,6 +64,7 @@
                     <connections>
                         <action selector="inputUserBegin:" destination="cSf-Bg-CFM" eventType="editingDidBegin" id="DX5-u4-6SJ"/>
                         <action selector="inputUserEnd:" destination="cSf-Bg-CFM" eventType="editingDidEnd" id="QdN-AX-hd1"/>
+                        <action selector="inputUserReturn:" destination="cSf-Bg-CFM" eventType="editingDidEndOnExit" id="fsT-4k-fC9"/>
                     </connections>
                 </textField>
             </subviews>

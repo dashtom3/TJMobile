@@ -90,7 +90,8 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
         self.presentViewController(self.storyboard?.instantiateViewControllerWithIdentifier("user") as UserViewController, animated: true, completion: nil)
     }
     func showLoginViewController(){
-        self.navigationController?.popViewControllerAnimated(true)
+        //self.navigationController?.popViewControllerAnimated(true)
+    self.navigationController?.popToViewController(self.navigationController?.viewControllers[0] as UIViewController, animated: true)
     }
     func pushViewController(num: Int) {
         numSelected = num

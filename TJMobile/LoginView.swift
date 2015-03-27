@@ -17,6 +17,9 @@ class LoginView: UIView {
     var delegate :UserLoginDelegate?
     override func awakeFromNib() {
         self.backgroundColor = UIColor.clearColor()
+        username.keyboardType = UIKeyboardType.NumbersAndPunctuation
+        password.keyboardType = UIKeyboardType.NumbersAndPunctuation
+        password.returnKeyType = UIReturnKeyType.Done
         password.setValue(UIColor.whiteColor(), forKeyPath: "_placeholderLabel.textColor")
         password.placeholderRectForBounds(CGRectMake(password.bounds.origin.x+100, password.bounds.origin.y, password.bounds.size.width-100, password.bounds.size.height))
         username.setValue(UIColor.whiteColor(), forKeyPath: "_placeholderLabel.textColor")
@@ -28,6 +31,13 @@ class LoginView: UIView {
     }
     @IBAction func back(sender: AnyObject) {
         delegate?.back();
+    }
+    @IBAction func inputUserReturn(sender: AnyObject) {
+        username.resignFirstResponder()
+        password.becomeFirstResponder()
+    }
+    @IBAction func inputPassReturn(sender: AnyObject) {
+        delegate?.loginShow()
     }
     @IBAction func inputUserBegin(sender: AnyObject) {
         username.textAlignment = NSTextAlignment.Center
