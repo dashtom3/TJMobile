@@ -30,6 +30,9 @@
 		127441A71A43003F004EC3AE /* LeftViewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 127441A51A43003F004EC3AE /* LeftViewTableCell.xib */; };
 		12C09CD31A9C609700460CBD /* WaitingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C09CD21A9C609700460CBD /* WaitingAnimation.swift */; };
 		12C09CD51A9C60AF00460CBD /* WaitingAnimation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12C09CD41A9C60AF00460CBD /* WaitingAnimation.xib */; };
+		12CA453E1AC52C470032AC3E /* BusBackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CA453D1AC52C470032AC3E /* BusBackCell.swift */; };
+		12CA45411AC5462E0032AC3E /* UserPickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CA453F1AC5462E0032AC3E /* UserPickerViewCell.swift */; };
+		12CA45421AC5462E0032AC3E /* UserPickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CA45401AC5462E0032AC3E /* UserPickerViewCell.xib */; };
 		12CC91A61A47F6020033B359 /* BusTicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CC91A41A47F6020033B359 /* BusTicketCell.swift */; };
 		12CC91A71A47F6020033B359 /* BusTicketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC91A51A47F6020033B359 /* BusTicketCell.xib */; };
 		12CC91AF1A4828F20033B359 /* BusFromViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CC91AE1A4828F20033B359 /* BusFromViewController.swift */; };
@@ -87,6 +90,9 @@
 		127441A51A43003F004EC3AE /* LeftViewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftViewTableCell.xib; sourceTree = "<group>"; };
 		12C09CD21A9C609700460CBD /* WaitingAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingAnimation.swift; sourceTree = "<group>"; };
 		12C09CD41A9C60AF00460CBD /* WaitingAnimation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitingAnimation.xib; sourceTree = "<group>"; };
+		12CA453D1AC52C470032AC3E /* BusBackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusBackCell.swift; sourceTree = "<group>"; };
+		12CA453F1AC5462E0032AC3E /* UserPickerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPickerViewCell.swift; sourceTree = "<group>"; };
+		12CA45401AC5462E0032AC3E /* UserPickerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserPickerViewCell.xib; sourceTree = "<group>"; };
 		12CC91A41A47F6020033B359 /* BusTicketCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusTicketCell.swift; sourceTree = "<group>"; };
 		12CC91A51A47F6020033B359 /* BusTicketCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusTicketCell.xib; sourceTree = "<group>"; };
 		12CC91AE1A4828F20033B359 /* BusFromViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusFromViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +203,9 @@
 				1274419D1A42E7EB004EC3AE /* MasterCollectionViewCell.xib */,
 				122A15E91A495D8C00519645 /* BusTimeCell.swift */,
 				122A15EA1A495D8C00519645 /* BusTimeCell.xib */,
+				12CA453D1AC52C470032AC3E /* BusBackCell.swift */,
+				12CA453F1AC5462E0032AC3E /* UserPickerViewCell.swift */,
+				12CA45401AC5462E0032AC3E /* UserPickerViewCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -346,6 +355,7 @@
 				12CC91A71A47F6020033B359 /* BusTicketCell.xib in Resources */,
 				12CD52A01AB6BFE700FBE09F /* NewsView.xib in Resources */,
 				12C09CD51A9C60AF00460CBD /* WaitingAnimation.xib in Resources */,
+				12CA45421AC5462E0032AC3E /* UserPickerViewCell.xib in Resources */,
 				127441721A42DD0C004EC3AE /* Main.storyboard in Resources */,
 				127441991A42E5A5004EC3AE /* MasterView.xib in Resources */,
 				12D41B821AA97ED200F56CD2 /* Images.xcassets in Resources */,
@@ -376,6 +386,7 @@
 				127441A61A43003F004EC3AE /* LeftViewTableCell.swift in Sources */,
 				12C09CD31A9C609700460CBD /* WaitingAnimation.swift in Sources */,
 				1274419E1A42E7EB004EC3AE /* MasterCollectionViewCell.swift in Sources */,
+				12CA45411AC5462E0032AC3E /* UserPickerViewCell.swift in Sources */,
 				1274416F1A42DD0C004EC3AE /* ViewController.swift in Sources */,
 				12D351C91A474212003465FC /* UserViewController.swift in Sources */,
 				12D71B751A974A77004D79D9 /* HttpRequest.swift in Sources */,
@@ -395,6 +406,7 @@
 				12322C321A46F57D00D26C49 /* LoginViewController.swift in Sources */,
 				12CC91B11A482F7F0033B359 /* BusToViewController.swift in Sources */,
 				12CC91B31A483B920033B359 /* BusTimeViewController.swift in Sources */,
+				12CA453E1AC52C470032AC3E /* BusBackCell.swift in Sources */,
 				126B5B0D1A909A5E00D91229 /* LoginView.swift in Sources */,
 				12CF92C81AC2A7CC00C01E46 /* AboutViewController.swift in Sources */,
 				127441931A42DFE4004EC3AE /* LeftView.swift in Sources */,

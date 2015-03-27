@@ -8,15 +8,17 @@
 
 import UIKit
 
-class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,HttpDelegate{
+class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,HttpDelegate,PickerViewDelegate{
     @IBOutlet weak var tableView: UITableView!
-    let labelTableView = ["常住校区","如何预约"]
+    let labelTableView = ["常住校区","如何预约","如何预约"]
     var waitingView = WaitingAnimation()
     var httpRequest = HttpRequest()
+    var select = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.registerNib(UINib(nibName: "BusTicketCell", bundle: nil), forCellReuseIdentifier: "BusCell")
+        tableView.registerNib(UINib(nibName: "UserPickerViewCell", bundle: nil), forCellReuseIdentifier: "PickerCell")
         tableView.tableHeaderView = UIView(frame: CGRectMake(0, 0, tableView.frame.width, 0.01))
         tableView.backgroundColor = UIColor.clearColor()
         //tableView.contentInset.top = -20
@@ -67,6 +69,11 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
             break
         }
     }
+    func pickerOK(name: NSString) {
+        var userDefault = NSUserDefaults.standardUserDefaults()
+        userDefault.setObject(name, forKey: "userPlace")
+        tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 1)], withRowAnimation: UITableViewRowAnimation.Automatic)
+    }
     func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
         return 3
     }
@@ -82,10 +89,26 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 return 1
             }else{
                 //TODO 时间比对 预约返程班车
+                var num=0;
+                for ticket:ticketInfo in TICKET.tickets{
+                    var dateConverter = DateConverter()
+                    var dateBooked = dateConverter.getDateFromNSString(ticket.time)
+                    var day2 = dateConverter.getddFromDate(dateBooked)
+                    var day = dateConverter.getddFromDate(NSDate())
+                    if(day==dateBooked){
+                        num++
+                    }
+                }
+                if(num==1){
+                    return TICKET.num+1
+                }
                 return TICKET.num
             }
         }
         if(section == 1){
+            if(select == true){
+                return 3
+            }
             return 2
         }
         return 1
@@ -94,6 +117,9 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if(indexPath.section == 0){
             return 84
         }
+        if(indexPath.section == 1 && indexPath.row == 1 && select == true){
+            return 102
+        }
         return 46
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -101,14 +127,31 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
         var cell: UITableViewCell = UITableViewCell()
         cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: nil)
         var cell1 = tableView.dequeueReusableCellWithIdentifier("BusCell") as BusTicketCell
+        var pickerCell = tableView.dequeueReusableCellWithIdentifier("PickerCell") as UserPickerViewCell
         if(indexPath.section == 0){
+            if(indexPath.row == TICKET.num && TICKET.num != 0){
+                var cell2 = tableView.dequeueReusableCellWithIdentifier("busAddCell") as BusBackCell
+                return cell2
+            }
             cell1.setStyle(indexPath.row)
             return cell1
+            
         }else if(indexPath.section == 1){
+            if(select == true && indexPath.row == 1){
+                pickerCell.delegate = self
+                if((NSUserDefaults.standardUserDefaults().valueForKey("userPlace")) != nil){
+                    pickerCell.setSelect(NSUserDefaults.standardUserDefaults().valueForKey("userPlace") as NSString)
+                }
+                return pickerCell
+            }
             cell.textLabel?.text = labelTableView[indexPath.row]
             if(indexPath.row==0){
                 //TODO 得到常住校区
-                cell.detailTextLabel?.text = "四平路校区"
+                if((NSUserDefaults.standardUserDefaults().valueForKey("userPlace")) != nil){
+                    cell.detailTextLabel?.text = NSUserDefaults.standardUserDefaults().valueForKey("userPlace") as NSString
+                }else{
+                    cell.detailTextLabel?.text = "四平路校区"
+                }
                 cell.detailTextLabel?.textColor = UIColor(red: 250/255, green: 157/255, blue: 76/255, alpha: 1)
                 cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             }
@@ -131,6 +174,17 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
     {
         if(indexPath.section == 2){
             self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("busfrom") as BusFromViewController , animated: true )
+        }
+        if(indexPath.section == 1){
+            if(indexPath.row == 0){
+                if(select == false){
+                    select = true
+                    tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.Automatic)
+                }else{
+                    select = false
+                    tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.Automatic)
+                }
+            }
         }
         if(indexPath.section == 0){
             var busTicketViewController = self.storyboard?.instantiateViewControllerWithIdentifier("busticket") as BusTicketViewController

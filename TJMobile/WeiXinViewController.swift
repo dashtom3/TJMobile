@@ -13,6 +13,7 @@ class WeiXinViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabelName: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,17 +29,20 @@ class WeiXinViewController: UIViewController {
         //移动图书馆
         case 1:
             imageView.image = UIImage(named:"master_wx_2")
-            label.text = NSString(format: "%@微信号:tongjilib", cards[num].labelName)
+            titleLabelName.text = NSString(format: "%@微信号", cards[num].labelName)
+            label.text = "tongjilib"
             break
         //校友会
         case 2:
             imageView.image = UIImage(named:"master_wx_3")
-            label.text = NSString(format: "%@微信号:TONGJI-xyh", cards[num].labelName)
+            titleLabelName.text = NSString(format: "%@微信号", cards[num].labelName)
+            label.text = "TONGJI-xyh"
             break
         //青春同济
         case 5:
             imageView.image = UIImage(named:"master_wx_6")
-            label.text = NSString(format: "%@微信号:qctjwx", cards[num].labelName)
+            titleLabelName.text = NSString(format: "%@微信号", cards[num].labelName)
+            label.text = "qctjwx"
             break
         default:
             break

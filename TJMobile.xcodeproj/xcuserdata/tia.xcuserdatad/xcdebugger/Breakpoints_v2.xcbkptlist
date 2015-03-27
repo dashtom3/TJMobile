@@ -927,7 +927,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
             endingLineNumber = "49"
-            landmarkName = "infoReturn(_:)"
+            landmarkName = "backMainView(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1549,7 +1549,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
             endingLineNumber = "71"
-            landmarkName = "imagePickerController(_:didFinishPickingImage:editingInfo:)"
+            landmarkName = "changePersonPic()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1565,7 +1565,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
             endingLineNumber = "74"
-            landmarkName = "imagePickerController(_:didFinishPickingImage:editingInfo:)"
+            landmarkName = "changePersonPic()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1581,7 +1581,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
             endingLineNumber = "55"
-            landmarkName = "changeUserBG(_:)"
+            landmarkName = "closeLogin(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

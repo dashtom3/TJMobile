@@ -97,9 +97,13 @@ class BusTimeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         return true
     }
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        var cell = tableView.cellForRowAtIndexPath(indexPath) as BusTimeCell
-        if(cell.labelWay.text == "预约已满"){
+        if(indexPath.row == 0){
             return nil
+        }else{
+            var cell = tableView.cellForRowAtIndexPath(indexPath) as BusTimeCell
+            if(cell.labelWay.text == "预约已满"){
+                return nil
+            }
         }
         return indexPath
     }

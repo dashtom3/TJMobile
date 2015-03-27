@@ -11,18 +11,20 @@ enum PIC{
     case PERSON
     case BACKGROUND
 }
-class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,PickerViewDelegate {
     //var title = ["常住校区","寝室","用户头像","封面","退出登录"]
-    let userTitle = [["常住校区","寝室"],["用户头像","封面"],["退出登录"]]
-    let detailTitle = ["四平路校区","西南八楼437"]
+    let userTitle = [["常住校区","寝室","寝室"],["用户头像","封面"],["退出登录"]]
+    let detailTitle = ["四平路校区","西南八楼437","西南八楼437"]
     var changePic = PIC.PERSON
     @IBOutlet weak var userImage: UIButton!
     @IBOutlet weak var userBg: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    var select = false
     override func viewDidLoad() {
         super.viewDidLoad()
         userImage.layer.masksToBounds = true
         userImage.layer.cornerRadius = 50
-        
+        tableView.registerNib(UINib(nibName: "UserPickerViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "PickerCell")
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
@@ -41,6 +43,7 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }else{
             userBg.setBackgroundImage(UIImage(named: "user_bg"), forState: UIControlState.Normal)
         }
+        tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,6 +61,11 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBAction func changePic(sender: AnyObject) {
         changePic = PIC.PERSON
         self.changePersonPic()
+    }
+    func pickerOK(name:NSString){
+        var userDefault = NSUserDefaults.standardUserDefaults()
+        userDefault.setObject(name, forKey: "userPlace")
+        tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Automatic)
     }
     func changePersonPic(){
         var picker = UIImagePickerController()
@@ -95,25 +103,54 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         return 0
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(section != 2){
+        switch section{
+        case 0:
+            if(select == true){
+                return 3
+            }
             return 2
+        case 1:
+            return 2
+        default:
+            break
         }
         return 1
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+        if(select == true && indexPath.section == 0 && indexPath.row == 1){
+            return 102
+        }
         return 46
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var cell: UITableViewCell = UITableViewCell()
-        
+        var cell1 = tableView.dequeueReusableCellWithIdentifier("PickerCell") as UserPickerViewCell
         //cell.backgroundColor = UIColor.clearColor()
         //cell.labelName.text = LEFT_LIST[indexPath.row]
         
         if(indexPath.section == 0){
+            if(select == true){
+                if(indexPath.row == 1){
+                    cell1.delegate = self
+                    if((NSUserDefaults.standardUserDefaults().valueForKey("userPlace")) != nil){
+                        cell1.setSelect(NSUserDefaults.standardUserDefaults().valueForKey("userPlace") as NSString)
+                    }
+                    return cell1
+                }
+            }
             cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: nil)
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-            cell.detailTextLabel?.text = detailTitle[indexPath.row]
+            if(indexPath.row == 0){
+                var userDefaults = NSUserDefaults.standardUserDefaults()
+                if((userDefaults.valueForKey("userPlace")) != nil){
+                    cell.detailTextLabel?.text = userDefaults.valueForKey("userPlace") as NSString
+                }else{
+                    cell.detailTextLabel?.text = detailTitle[indexPath.row]
+                }
+            }else{
+                cell.detailTextLabel?.text = detailTitle[indexPath.row]
+            }
             cell.detailTextLabel?.textColor = UIColor(red: 250/255, green: 157/255, blue: 76/255, alpha: 1)
         }else if(indexPath.section == 1){
             cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: nil)
@@ -133,6 +170,17 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
     {
+        if(indexPath.section == 0){
+            if(indexPath.row == 0){
+                if(select == true){
+                    select = false
+                    tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
+                }else{
+                    select = true
+                    tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
+                }
+            }
+        }
         if(indexPath.section == 1){
             if(indexPath.row == 0){
                 changePic = PIC.PERSON

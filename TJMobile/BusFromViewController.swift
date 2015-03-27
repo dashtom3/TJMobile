@@ -55,9 +55,8 @@ class BusFromViewController: UIViewController,UITableViewDelegate,UITableViewDat
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         cell.textLabel?.text = SCHOOL[indexPath.row]
         if(routeMatrix[indexPath.row][indexPath.row]==0){
-            var view = UIView(frame: cell.frame)
-            view.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 0.7)
-            cell.addSubview(view)
+            cell.contentView.alpha = 0.3
+            cell.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 0.7)
         }
         return cell
     }
