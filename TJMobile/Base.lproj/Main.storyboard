@@ -27,7 +27,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="E340D349-CAFF-4089-BEE3-24065E651820" translatesAutoresizingMaskIntoConstraints="NO" id="bjF-nG-L8M">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="8F77053F-54A1-48C6-B519-C7055403D22B" translatesAutoresizingMaskIntoConstraints="NO" id="bjF-nG-L8M">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
@@ -398,7 +398,7 @@
                                     <constraint firstAttribute="width" constant="256" id="qEg-ol-2jr"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvn-rY-yMm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvn-rY-yMm" customClass="UICopyLabel" customModule="TJMobile" customModuleProvider="target">
                                 <rect key="frame" x="40" y="400" width="240" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="5vj-aB-uMA"/>
@@ -561,9 +561,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.21176470588235294" green="0.22352941176470587" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="5GQ-Jy-UIf" appends="YES" id="yHm-3Y-Hep"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="5gW-ZK-HMf"/>
                     <connections>
@@ -571,14 +568,51 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="5GQ-Jy-UIf">
-                    <connections>
-                        <action selector="panGesture:" destination="BYZ-38-t0r" id="p24-5E-pbQ"/>
-                        <outlet property="delegate" destination="BYZ-38-t0r" id="x7J-Sh-wTJ"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1075" y="310"/>
+        </scene>
+        <!--Bus Page View Controller-->
+        <scene sceneID="25Z-VK-Zu0">
+            <objects>
+                <viewController storyboardIdentifier="pagecontent" wantsFullScreenLayout="YES" id="i41-To-Skp" customClass="BusPageViewController" customModule="TJMobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s4U-78-b7b"/>
+                        <viewControllerLayoutGuide type="bottom" id="pZI-Lu-bBH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7P5-0b-QYl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSJ-GP-psO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="IGk-sB-vYk">
+                                <rect key="frame" x="140" y="498" width="40" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="bkt-cg-6Go"/>
+                                    <constraint firstAttribute="height" constant="38" id="uGb-NW-Dhx"/>
+                                </constraints>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="TSJ-GP-psO" secondAttribute="trailing" id="K8X-z9-17s"/>
+                            <constraint firstAttribute="centerX" secondItem="IGk-sB-vYk" secondAttribute="centerX" id="SX8-kY-bXL"/>
+                            <constraint firstItem="TSJ-GP-psO" firstAttribute="top" secondItem="7P5-0b-QYl" secondAttribute="top" id="UPI-gU-3ga"/>
+                            <constraint firstItem="TSJ-GP-psO" firstAttribute="leading" secondItem="7P5-0b-QYl" secondAttribute="leading" id="e3Q-PH-qpg"/>
+                            <constraint firstItem="pZI-Lu-bBH" firstAttribute="top" secondItem="IGk-sB-vYk" secondAttribute="bottom" constant="32" id="fKL-QF-hMI"/>
+                            <constraint firstItem="pZI-Lu-bBH" firstAttribute="top" secondItem="TSJ-GP-psO" secondAttribute="bottom" id="yhW-pU-nUk"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="pageControl" destination="IGk-sB-vYk" id="8VL-uJ-fWd"/>
+                        <outlet property="scrollView" destination="TSJ-GP-psO" id="GIh-sD-ibz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KCw-fv-KZf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1879" y="-376"/>
         </scene>
         <!--Bus Main View Controller-->
         <scene sceneID="QzT-Om-k3B">
@@ -1159,9 +1193,26 @@
             </objects>
             <point key="canvasLocation" x="1912" y="1021"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="KCc-w2-cur">
+            <objects>
+                <viewController id="WnM-JW-Opg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pH2-8b-uGr"/>
+                        <viewControllerLayoutGuide type="bottom" id="e8O-QC-Vha"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ubg-CE-Qgo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BwI-Mu-48S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
-        <image name="E340D349-CAFF-4089-BEE3-24065E651820" width="640" height="1136">
+        <image name="8F77053F-54A1-48C6-B519-C7055403D22B" width="640" height="1136">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGQkNYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QDwcI
 ERYbHCUmJygwMzY8P1UkbnVsbNQJCgsMDQ4PEFYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVwc1dOU0Nv

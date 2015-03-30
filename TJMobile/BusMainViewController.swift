@@ -34,6 +34,7 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     override func viewWillAppear(animated: Bool) {
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: true)
+        tableView.reloadData()
     }
     override func viewDidAppear(animated: Bool) {
         waitingView.startAnimation()
@@ -54,12 +55,22 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
             var tickets = NSJSONSerialization.JSONObjectWithData(httpRequest.receiveDate, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSArray
             var ticket = NSDictionary()
             TICKET.tickets = []
-            for ticket in tickets{
+            TICKET.todayNum = 0;
+            for(var i = 0;i<tickets.count;i++){
+                var ticket:NSDictionary = tickets[i] as NSDictionary
                 var ticket2 = ticketInfo(time: ticket.valueForKey("ticket_time") as NSString, busFrom: ticket.valueForKey("start") as NSString, busTo: ticket.valueForKey("end") as NSString, bus_id: ticket.valueForKey("bus_id") as NSString, ticket_id: NSString(format: "%d",ticket.valueForKey("id") as Int))
+                var dateConverter = DateConverter()
+                var dateBooked = dateConverter.getDateFromNSString(ticket2.time)
+                var day2 = dateConverter.getddFromDate(dateBooked)
+                var day = dateConverter.getddFromDate(NSDate(timeIntervalSinceNow: 3600*24))
+                if(day == day2){
+                    TICKET.todayNum++;
+                    TICKET.todayNumInTickets = i
+                }
                 TICKET.tickets.append(ticket2)
             }
             TICKET.num = tickets.count
-            tableView.reloadData()
+            tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
             waitingView.stopAnimation()
             break
         default:
@@ -89,17 +100,7 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 return 1
             }else{
                 //TODO 时间比对 预约返程班车
-                var num=0;
-                for ticket:ticketInfo in TICKET.tickets{
-                    var dateConverter = DateConverter()
-                    var dateBooked = dateConverter.getDateFromNSString(ticket.time)
-                    var day2 = dateConverter.getddFromDate(dateBooked)
-                    var day = dateConverter.getddFromDate(NSDate())
-                    if(day==dateBooked){
-                        num++
-                    }
-                }
-                if(num==1){
+                if(TICKET.todayNum==1){
                     return TICKET.num+1
                 }
                 return TICKET.num
@@ -115,6 +116,9 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
         if(indexPath.section == 0){
+            if(indexPath.row == TICKET.num && TICKET.num != 0){
+                return 46
+            }
             return 84
         }
         if(indexPath.section == 1 && indexPath.row == 1 && select == true){
@@ -169,7 +173,6 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
     {
         return true
     }
-    
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
     {
         if(indexPath.section == 2){
@@ -185,14 +188,40 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.Automatic)
                 }
             }
+            var num = 0
+            if(select == true){
+                num++
+            }
+            if(indexPath.row - num == 1){
+                self.presentViewController(self.storyboard?.instantiateViewControllerWithIdentifier("pagecontent") as BusPageViewController, animated: true, completion: nil)
+            }
         }
         if(indexPath.section == 0){
+            if(indexPath.row == TICKET.num && TICKET.num != 0){
+                selectNum[0]=inputSelectNum(TICKET.tickets[TICKET.todayNumInTickets].busTo)
+                selectNum[1]=inputSelectNum(TICKET.tickets[TICKET.todayNumInTickets].busFrom)
+                if(routeMatrix[selectNum[0]][selectNum[1]] == 0){
+                    var alert = UIAlertView(title: "", message: "暂无返回车次", delegate: self, cancelButtonTitle: "确定")
+                    alert.show()
+                }else{
+                    var busTimeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("bustime") as BusTimeViewController
+                    self.navigationController?.pushViewController(busTimeViewController, animated: true )
+                }
+            }else{
             var busTicketViewController = self.storyboard?.instantiateViewControllerWithIdentifier("busticket") as BusTicketViewController
             self.navigationController?.pushViewController(busTicketViewController, animated: true )
             busTicketViewController.styleNum = indexPath.row
+            }
         }
     }
-
+    func inputSelectNum(schoolName:NSString)->Int{
+        for(var i = 0;i<SCHOOL.count;i++){
+            if(SCHOOL[i] == schoolName){
+                return i
+            }
+        }
+        return 0
+    }
     /*
     // MARK: - Navigation
 

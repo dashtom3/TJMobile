@@ -36,6 +36,9 @@ class LeftView: UIView,UITableViewDelegate,UITableViewDataSource {
         tableView.registerNib(UINib(nibName: "LeftViewTableCell", bundle: nil), forCellReuseIdentifier: "LeftCell")
         userImage.layer.masksToBounds = true
         userImage.layer.cornerRadius = 50
+        tableView.selectRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: false, scrollPosition: UITableViewScrollPosition.Top)
+        var cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as LeftViewTableCell
+        cell.labelName.textColor = UIColor(red: 255/255, green: 144/255, blue: 0/255, alpha: 1)
         self.refresh()
     }
     @IBAction func presentSettingView(sender: AnyObject) {

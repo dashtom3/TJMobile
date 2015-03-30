@@ -39,6 +39,10 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
         newsView.delegate = self
         self.view.addSubview(newsView)
         self.view.bringSubviewToFront(masterView)
+        
+        
+        leftView.userInteractionEnabled = true
+        masterView.userInteractionEnabled = true
         // Do any additional setup after loading the view, typically from a nib.
     }
     override func viewWillAppear(animated: Bool) {
@@ -47,7 +51,7 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
         leftView.refresh()
 
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -98,13 +102,13 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
         switch num{
         case 0:
             var userDefault = NSUserDefaults.standardUserDefaults()
-            if((userDefault.objectForKey("login") as NSString) == "0"){
-                var alert = UIAlertView(title: "", message: "用户未登录，无法使用该功能", delegate: self, cancelButtonTitle: "确定")
-                alert.show()
-                self.refresh()
-            }else{
+//            if((userDefault.objectForKey("login") as NSString) == "0"){
+//                var alert = UIAlertView(title: "", message: "用户未登录，无法使用该功能", delegate: self, cancelButtonTitle: "确定")
+//                alert.show()
+//                self.refresh()
+//            }else{
                 self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("bus") as BusMainViewController, animated: true)
-            }
+//            }
             break
         case 1:
             var actionSheet = UIActionSheet(title: cards[num].labelName, delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles: "主页", "微信","微博","掌上图书馆")
@@ -184,32 +188,58 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
             self.refresh()
         }
     }
-    @IBAction func panGesture(sender: AnyObject) {
-        if(sender.state == UIGestureRecognizerState.Began){
-            pointRightX = masterView.center.x - sender.locationInView(self.view).x
-        }
-        if(sender.state == UIGestureRecognizerState.Changed){
-            if(masterView.center.x-masterView.frame.width/2>=0&&masterView.center.x-masterView.frame.width/2-leftView.frame.width<=0){
-                if(pointRightX+sender.locationInView(self.view).x-masterView.frame.width/2<0){
-                    masterView.center = CGPointMake(masterView.frame.width/2, masterView.center.y)
-                    newsView.center = masterView.center
-                }else if(pointRightX+sender.locationInView(self.view).x-masterView.frame.width/2-leftView.frame.width>0){
-                    masterView.center = CGPointMake(leftView.frame.width+masterView.frame.width/2,masterView.center.y)
-                    newsView.center = masterView.center
-                }else{
-                    masterView.center = CGPointMake(pointRightX+sender.locationInView(self.view).x, masterView.center.y)
-                    newsView.center = masterView.center
-                }
-            }
-        }
-        if(sender.state == UIGestureRecognizerState.Ended){
-            if(masterView.center.x-self.view.frame.width<0){
-                LeftAnimation(0)
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        var touch = touches.anyObject() as UITouch
+        pointRightX = masterView.center.x - touch.locationInView(self.view).x
+    }
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+        if(masterView.center.x-masterView.frame.width/2>=0&&masterView.center.x-masterView.frame.width/2-leftView.frame.width<=0){
+             var touch = touches.anyObject() as UITouch
+            if(pointRightX+touch.locationInView(self.view).x-masterView.frame.width/2<0){
+                masterView.center = CGPointMake(masterView.frame.width/2, masterView.center.y)
+                newsView.center = masterView.center
+            }else if(pointRightX+touch.locationInView(self.view).x-masterView.frame.width/2-leftView.frame.width>0){
+                masterView.center = CGPointMake(leftView.frame.width+masterView.frame.width/2,masterView.center.y)
+                newsView.center = masterView.center
             }else{
-                LeftAnimation(1)
+                masterView.center = CGPointMake(pointRightX+touch.locationInView(self.view).x, masterView.center.y)
+                newsView.center = masterView.center
             }
         }
     }
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        if(masterView.center.x-self.view.frame.width<0){
+            LeftAnimation(0)
+        }else{
+            LeftAnimation(1)
+        }
+    }
+//    @IBAction func panGesture(sender: AnyObject) {
+//        if(sender.state == UIGestureRecognizerState.Began){
+//            pointRightX = masterView.center.x - sender.locationInView(self.view).x
+//        }
+//        if(sender.state == UIGestureRecognizerState.Changed){
+//            if(masterView.center.x-masterView.frame.width/2>=0&&masterView.center.x-masterView.frame.width/2-leftView.frame.width<=0){
+//                if(pointRightX+sender.locationInView(self.view).x-masterView.frame.width/2<0){
+//                    masterView.center = CGPointMake(masterView.frame.width/2, masterView.center.y)
+//                    newsView.center = masterView.center
+//                }else if(pointRightX+sender.locationInView(self.view).x-masterView.frame.width/2-leftView.frame.width>0){
+//                    masterView.center = CGPointMake(leftView.frame.width+masterView.frame.width/2,masterView.center.y)
+//                    newsView.center = masterView.center
+//                }else{
+//                    masterView.center = CGPointMake(pointRightX+sender.locationInView(self.view).x, masterView.center.y)
+//                    newsView.center = masterView.center
+//                }
+//            }
+//        }
+//        if(sender.state == UIGestureRecognizerState.Ended){
+//            if(masterView.center.x-self.view.frame.width<0){
+//                LeftAnimation(0)
+//            }else{
+//                LeftAnimation(1)
+//            }
+//        }
+//    }
     func LeftAnimation(num:Int){
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(0.5)

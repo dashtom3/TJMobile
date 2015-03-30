@@ -31,8 +31,8 @@ class BusTicketCell: UITableViewCell {
             var tomorrowDate = NSDate(timeIntervalSinceNow: NSTimeInterval(86400))
             var dayString = dateConverter.getyyyyFromDate(tomorrowDate)+"年"+dateConverter.getMMFromDate(tomorrowDate)+"月"+dateConverter.getddFromDate(tomorrowDate)+"日 "+dateConverter.getDayFromDate(tomorrowDate)
             self.labelTime.text = dayString
-            self.labelBusTo.text = SCHOOL[selectNum[0]]
-            self.labelBusFrom.text = SCHOOL[selectNum[1]]
+            self.labelBusFrom.text = SCHOOL[selectNum[0]]
+            self.labelBusTo.text = SCHOOL[selectNum[1]]
         }else if(TICKET.num==0){
             self.backgroundColor = UIColor(red: 205/255, green: 205/255, blue: 205/255, alpha: 1)
             self.labelTime.text = ""

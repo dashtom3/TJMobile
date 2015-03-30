@@ -28,6 +28,10 @@
 		127441A31A42ED95004EC3AE /* MasterCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127441A21A42ED95004EC3AE /* MasterCollectionLayout.swift */; };
 		127441A61A43003F004EC3AE /* LeftViewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127441A41A43003F004EC3AE /* LeftViewTableCell.swift */; };
 		127441A71A43003F004EC3AE /* LeftViewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 127441A51A43003F004EC3AE /* LeftViewTableCell.xib */; };
+		12BCAC2B1AC92DCA00D77B62 /* UICopyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BCAC2A1AC92DCA00D77B62 /* UICopyLabel.swift */; };
+		12BCAC331AC98EA500D77B62 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BCAC321AC98EA500D77B62 /* PageView.swift */; };
+		12BCAC351AC98F0200D77B62 /* PageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12BCAC341AC98F0200D77B62 /* PageView.xib */; };
+		12BCAC371AC98FB200D77B62 /* BusPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BCAC361AC98FB200D77B62 /* BusPageViewController.swift */; };
 		12C09CD31A9C609700460CBD /* WaitingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C09CD21A9C609700460CBD /* WaitingAnimation.swift */; };
 		12C09CD51A9C60AF00460CBD /* WaitingAnimation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12C09CD41A9C60AF00460CBD /* WaitingAnimation.xib */; };
 		12CA453E1AC52C470032AC3E /* BusBackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CA453D1AC52C470032AC3E /* BusBackCell.swift */; };
@@ -88,6 +92,10 @@
 		127441A21A42ED95004EC3AE /* MasterCollectionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterCollectionLayout.swift; sourceTree = "<group>"; };
 		127441A41A43003F004EC3AE /* LeftViewTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewTableCell.swift; sourceTree = "<group>"; };
 		127441A51A43003F004EC3AE /* LeftViewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftViewTableCell.xib; sourceTree = "<group>"; };
+		12BCAC2A1AC92DCA00D77B62 /* UICopyLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICopyLabel.swift; sourceTree = "<group>"; };
+		12BCAC321AC98EA500D77B62 /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		12BCAC341AC98F0200D77B62 /* PageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageView.xib; sourceTree = "<group>"; };
+		12BCAC361AC98FB200D77B62 /* BusPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusPageViewController.swift; sourceTree = "<group>"; };
 		12C09CD21A9C609700460CBD /* WaitingAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingAnimation.swift; sourceTree = "<group>"; };
 		12C09CD41A9C60AF00460CBD /* WaitingAnimation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitingAnimation.xib; sourceTree = "<group>"; };
 		12CA453D1AC52C470032AC3E /* BusBackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusBackCell.swift; sourceTree = "<group>"; };
@@ -151,6 +159,7 @@
 		127441661A42DD0C004EC3AE /* TJMobile */ = {
 			isa = PBXGroup;
 			children = (
+				12BCAC291AC92DA600D77B62 /* label */,
 				12CC91AD1A4828780033B359 /* collection view layout */,
 				12CC91AC1A48286B0033B359 /* util */,
 				12CC91AB1A4828420033B359 /* view controller */,
@@ -192,6 +201,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		12BCAC291AC92DA600D77B62 /* label */ = {
+			isa = PBXGroup;
+			children = (
+				12BCAC2A1AC92DCA00D77B62 /* UICopyLabel.swift */,
+			);
+			name = label;
+			sourceTree = "<group>";
+		};
 		12CC91A81A4828230033B359 /* cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +248,8 @@
 				12C09CD41A9C60AF00460CBD /* WaitingAnimation.xib */,
 				12CD529D1AB6BFCC00FBE09F /* NewsView.swift */,
 				12CD529F1AB6BFE700FBE09F /* NewsView.xib */,
+				12BCAC321AC98EA500D77B62 /* PageView.swift */,
+				12BCAC341AC98F0200D77B62 /* PageView.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -250,6 +269,7 @@
 				12E468BB1AC145DE00E10CB0 /* SettingViewController.swift */,
 				12CF92C71AC2A7CC00C01E46 /* AboutViewController.swift */,
 				12CF92C91AC2CC4600C01E46 /* WeiXinViewController.swift */,
+				12BCAC361AC98FB200D77B62 /* BusPageViewController.swift */,
 			);
 			name = "view controller";
 			sourceTree = "<group>";
@@ -361,6 +381,7 @@
 				12D41B821AA97ED200F56CD2 /* Images.xcassets in Resources */,
 				122A15EC1A495D8C00519645 /* BusTimeCell.xib in Resources */,
 				127441A71A43003F004EC3AE /* LeftViewTableCell.xib in Resources */,
+				12BCAC351AC98F0200D77B62 /* PageView.xib in Resources */,
 				127441771A42DD0C004EC3AE /* LaunchScreen.xib in Resources */,
 				1274419F1A42E7EB004EC3AE /* MasterCollectionViewCell.xib in Resources */,
 				12D71B721A970ED3004D79D9 /* LoginView.xib in Resources */,
@@ -400,6 +421,7 @@
 				1274416D1A42DD0C004EC3AE /* TJMobile.xcdatamodeld in Sources */,
 				12CEB8AF1A9F779900BCC63A /* DateConverter.swift in Sources */,
 				127441A31A42ED95004EC3AE /* MasterCollectionLayout.swift in Sources */,
+				12BCAC331AC98EA500D77B62 /* PageView.swift in Sources */,
 				12CF7B5F1A7BAB6A008009A2 /* LoginUserViewController.swift in Sources */,
 				1274419B1A42E60B004EC3AE /* MasterView.swift in Sources */,
 				12CC91AF1A4828F20033B359 /* BusFromViewController.swift in Sources */,
@@ -409,8 +431,10 @@
 				12CA453E1AC52C470032AC3E /* BusBackCell.swift in Sources */,
 				126B5B0D1A909A5E00D91229 /* LoginView.swift in Sources */,
 				12CF92C81AC2A7CC00C01E46 /* AboutViewController.swift in Sources */,
+				12BCAC371AC98FB200D77B62 /* BusPageViewController.swift in Sources */,
 				127441931A42DFE4004EC3AE /* LeftView.swift in Sources */,
 				12CF92CA1AC2CC4600C01E46 /* WeiXinViewController.swift in Sources */,
+				12BCAC2B1AC92DCA00D77B62 /* UICopyLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
