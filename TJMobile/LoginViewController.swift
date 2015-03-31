@@ -20,11 +20,14 @@ class LoginViewController: UIViewController {
         unLoginBtn.layer.cornerRadius = 4
         unLoginBtn.layer.borderWidth = 1
         unLoginBtn.layer.borderColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), [1,1,1,1])
-        var userDefault = NSUserDefaults.standardUserDefaults()
-        userDefault.setObject("0", forKey: "login")
+        
         // Do any additional setup after loading the view.
     }
-
+    override func viewWillAppear(animated: Bool) {
+        if((NSUserDefaults.standardUserDefaults().valueForKey("login") as NSString).isEqualToString("1")){
+            self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("master") as ViewController, animated: true)
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

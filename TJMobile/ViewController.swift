@@ -61,9 +61,9 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
     }
     func showLeftView() {
         if(masterView.center.x-masterView.frame.width/2==0){
-            LeftAnimation(1)
+            LeftAnimation(1,time: 0.4)
         }else if(leftView.center.x-leftView.frame.width/2==0){
-            LeftAnimation(0)
+            LeftAnimation(0,time: 0.4)
         }
     }
     func showMasterView(num:Int){
@@ -210,23 +210,23 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
         if(sender.state == UIGestureRecognizerState.Ended){
             if(pointIntialX<self.view.frame.width){
                 if(masterView.center.x-self.view.frame.width*2/3<0){
-                    LeftAnimation(0)
+                    LeftAnimation(0,time: 0.2)
                 }else{
-                    LeftAnimation(1)
+                    LeftAnimation(1,time: 0.2)
                 }
             }else{
                 if(masterView.center.x-self.view.frame.width*5/4<0){
-                    LeftAnimation(0)
+                    LeftAnimation(0,time: 0.2)
                 }else{
-                    LeftAnimation(1)
+                    LeftAnimation(1,time: 0.2)
                 }
             }
         }
         }
     }
-    func LeftAnimation(num:Int){
+    func LeftAnimation(num:Int,time:NSTimeInterval){
         UIView.beginAnimations(nil, context: nil)
-        UIView.setAnimationDuration(0.5)
+        UIView.setAnimationDuration(time)
         UIView.setAnimationCurve(UIViewAnimationCurve.EaseInOut)
         UIView.setAnimationDelegate(self)
         if(num==0){
@@ -237,7 +237,7 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
             masterView.frame = RIGHT_FRAME.secondFrame
             newsView.frame = RIGHT_FRAME.secondFrame
             masterView.setUserInterfaceEnabled(false)
-            refresh()
+            
         }
         UIView.commitAnimations()
     }

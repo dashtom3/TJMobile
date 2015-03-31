@@ -43,6 +43,11 @@ class HttpRequest: NSObject,NSURLConnectionDelegate,NSURLConnectionDataDelegate{
         println("http发送请求:"+url)
         getRequest(url)
     }
+    func servletLoginSelf(){
+        var url = basicUrl+"LoginServlet?username=1336313&password=504083&weekend=0"
+        println("http发送请求:"+url)
+        getRequest(url)
+    }
     //密码找回
     //异步取回姓名
     //查询线下所有班车信息
@@ -73,6 +78,44 @@ class HttpRequest: NSObject,NSURLConnectionDelegate,NSURLConnectionDataDelegate{
         println("http发送请求:"+url)
         getRequest(url)
     }
+    //统一身份认证
+    func servletISLogin(username:NSString,password:NSString){
+        var url = "http://tjis2.tongji.edu.cn:58080/amserver/UI/Login?Login.Token1="+username+"&Login.Token2="+password+"&gx_charset=UTF-8"
+        var req = NSMutableURLRequest(URL: NSURL(string: url)!, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 10)
+        req.HTTPMethod = "POST"
+        var header  = NSMutableDictionary()
+        header.setValue("application/x-www-form-urlencoded; charset=utf-8", forKey: "Content-Type")
+        header.setValue("text/html", forKey:"Accept")
+        header.setValue("no-cache" ,forKey:"Cache-Control")
+        header.setValue("no-cache", forKey:"Pragma")
+        header.setValue("close", forKey:"Connection")
+        req.allHTTPHeaderFields = header
+        var connection = NSURLConnection(request: req, delegate: self)
+    }
+    func servletLoginPage(){
+        var url = "http://tjis2.tongji.edu.cn:58080/amconsole/base/AMAdminFrame"
+        var req = NSMutableURLRequest(URL: NSURL(string: url)!, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 10)
+        var header  = NSMutableDictionary()
+        header.setValue("application/x-www-form-urlencoded; charset=utf-8", forKey: "Content-Type")
+        header.setValue("text/html", forKey:"Accept")
+        header.setValue("no-cache" ,forKey:"Cache-Control")
+        header.setValue("no-cache", forKey:"Pragma")
+        header.setValue("close", forKey:"Connection")
+        req.allHTTPHeaderFields = header
+        var connection = NSURLConnection(request: req, delegate: self)
+    }
+    func servletLoginPage2(cookie:NSString){
+        var url = "http://tjis2.tongji.edu.cn:58080/amconsole/user/UMUserPage?"+cookie
+        var req = NSMutableURLRequest(URL: NSURL(string: url)!, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 10)
+        var header  = NSMutableDictionary()
+        header.setValue("application/x-www-form-urlencoded; charset=utf-8", forKey: "Content-Type")
+        header.setValue("text/html", forKey:"Accept")
+        header.setValue("no-cache" ,forKey:"Cache-Control")
+        header.setValue("no-cache", forKey:"Pragma")
+        header.setValue("close", forKey:"Connection")
+        req.allHTTPHeaderFields = header
+        var connection = NSURLConnection(request: req, delegate: self)
+    }
     func connection(connection: NSURLConnection, didFailWithError error: NSError) {
         delegate?.infoReturn(-1)
     }
@@ -84,10 +127,9 @@ class HttpRequest: NSObject,NSURLConnectionDelegate,NSURLConnectionDataDelegate{
         receiveDate = NSMutableData()
     }
     func connectionDidFinishLoading(connection: NSURLConnection) {
-        println(receiveDate)
-        receiveStr = NSString(data: receiveDate, encoding: NSASCIIStringEncoding)!
-        println(receiveStr.length)
-        delegate?.infoReturn(0)
         
+        receiveStr = NSString(data: receiveDate, encoding: NSUTF8StringEncoding)!
+        println(receiveStr)
+        delegate?.infoReturn(0)
     }
 }

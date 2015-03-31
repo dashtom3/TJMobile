@@ -13,8 +13,9 @@ enum PIC{
 }
 class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,PickerViewDelegate {
     //var title = ["常住校区","寝室","用户头像","封面","退出登录"]
-    let userTitle = [["常住校区","寝室","寝室"],["用户头像","封面"],["退出登录"]]
-    let detailTitle = ["四平路校区","西南八楼437","西南八楼437"]
+    @IBOutlet weak var userName: UILabel!
+    let userTitle = [["常住校区"],["用户头像","封面"],["退出登录"]]
+    let detailTitle = ["四平路校区"]
     var changePic = PIC.PERSON
     @IBOutlet weak var userImage: UIButton!
     @IBOutlet weak var userBg: UIButton!
@@ -43,6 +44,7 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }else{
             userBg.setBackgroundImage(UIImage(named: "user_bg"), forState: UIControlState.Normal)
         }
+        userName.text = userDefaults.valueForKey("userInfo") as NSString
         tableView.reloadData()
     }
     
@@ -106,9 +108,9 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         switch section{
         case 0:
             if(select == true){
-                return 3
+                return 2
             }
-            return 2
+            return 1
         case 1:
             return 2
         default:

@@ -27,7 +27,7 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
         waitingView.frame.origin.x = self.view.frame.width/2-80
         waitingView.frame.origin.y = self.view.frame.height/2-80
         waitingView.alpha = 0.0
-        waitingView.waitingLabelKindNum = 3;
+        
         self.view.addSubview(waitingView)
         httpRequest.delegate = self
         // Do any additional setup after loading the view.
@@ -38,8 +38,9 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     override func viewDidAppear(animated: Bool) {
         waitingView.startAnimation()
-        var userDefault = NSUserDefaults.standardUserDefaults()
-        httpRequest.servletGetTicket(userDefault.objectForKey("username") as NSString, curtime: NSString(format: "%d", Int(NSTimeIntervalSince1970)) , history: "0")
+        waitingView.waitingLabelKindNum = 4;
+        httpRequest.servletLoginSelf()
+        //httpRequest.servletGetTicket(userDefault.objectForKey("username") as NSString, curtime: NSString(format: "%d", Int(NSTimeIntervalSince1970)) , history: "0")
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -49,36 +50,65 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.navigationController?.popViewControllerAnimated(true)
     }
     func infoReturn(recallNum: Int) {
-        switch recallNum{
-        case 0:
-            var error:NSError?
-            var tickets = NSJSONSerialization.JSONObjectWithData(httpRequest.receiveDate, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSArray
-            var ticket = NSDictionary()
-            TICKET.tickets = []
-            TICKET.todayNum = 0;
-            for(var i = 0;i<tickets.count;i++){
-                var ticket:NSDictionary = tickets[i] as NSDictionary
-                var ticket2 = ticketInfo(time: ticket.valueForKey("ticket_time") as NSString, busFrom: ticket.valueForKey("start") as NSString, busTo: ticket.valueForKey("end") as NSString, bus_id: ticket.valueForKey("bus_id") as NSString, ticket_id: NSString(format: "%d",ticket.valueForKey("id") as Int))
-                var dateConverter = DateConverter()
-                var dateBooked = dateConverter.getDateFromNSString(ticket2.time)
-                var day2 = dateConverter.getddFromDate(dateBooked)
-                var day = dateConverter.getddFromDate(NSDate(timeIntervalSinceNow: 3600*24))
-                if(day == day2){
-                    TICKET.todayNum++;
-                    TICKET.todayNumInTickets = i
+                switch recallNum{
+                case 0:
+                    if(waitingView.waitingLabelKindNum == 4){
+                    if(httpRequest.receiveStr.length<5){
+                        var alert = UIAlertView(title: "获取列表出现问题", message: "", delegate: self, cancelButtonTitle: "确定")
+                        alert.tag = 1
+                        alert.show()
+                        waitingView.stopAnimation()
+                    }else{
+                        var error:NSError?
+                        userInfo = NSJSONSerialization.JSONObjectWithData(httpRequest.receiveDate, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
+                        routeList = userInfo.valueForKey("routelist") as NSArray
+                        var nsDictionary:NSDictionary
+                        for nsDictionary in routeList{
+                            for(var i = 0; i < SCHOOL.count;i++){
+                                if(SCHOOL[i]==nsDictionary.valueForKey("start") as NSString){
+                                    for(var j = 0; j < SCHOOL.count;j++){
+                                        if(SCHOOL[j]==nsDictionary.valueForKey("end") as NSString){
+                                            routeMatrix[i][j] = nsDictionary.valueForKey("route_id") as Int
+                                            routeMatrix[i][i] = 1
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        waitingView.waitingLabelKindNum = 3;
+                        httpRequest.servletGetTicket(NSUserDefaults.standardUserDefaults().objectForKey("username") as NSString, curtime: NSString(format: "%d", Int(NSTimeIntervalSince1970)) , history: "0")
+                    }
+                    }else{
+                        var error:NSError?
+                        var tickets = NSJSONSerialization.JSONObjectWithData(httpRequest.receiveDate, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSArray
+                        var ticket = NSDictionary()
+                        TICKET.tickets = []
+                        TICKET.todayNum = 0;
+                        for(var i = 0;i<tickets.count;i++){
+                            var ticket:NSDictionary = tickets[i] as NSDictionary
+                            var ticket2 = ticketInfo(time: ticket.valueForKey("ticket_time") as NSString, busFrom: ticket.valueForKey("start") as NSString, busTo: ticket.valueForKey("end") as NSString, bus_id: ticket.valueForKey("bus_id") as NSString, ticket_id: NSString(format: "%d",ticket.valueForKey("id") as Int))
+                            var dateConverter = DateConverter()
+                            var dateBooked = dateConverter.getDateFromNSString(ticket2.time)
+                            var day2 = dateConverter.getddFromDate(dateBooked)
+                            var day = dateConverter.getddFromDate(NSDate(timeIntervalSinceNow: 3600*24))
+                            if(day == day2){
+                                TICKET.todayNum++;
+                                TICKET.todayNumInTickets = i
+                            }
+                            TICKET.tickets.append(ticket2)
+                        }
+                        TICKET.num = tickets.count
+                        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
+                        waitingView.stopAnimation()
+                    }
+                    break
+                default:
+                    var alert = UIAlertView(title: "网络连接失败", message: "", delegate: self, cancelButtonTitle: "确定")
+                    alert.show()
+                    waitingView.stopAnimation()
+                    break
                 }
-                TICKET.tickets.append(ticket2)
-            }
-            TICKET.num = tickets.count
-            tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
-            waitingView.stopAnimation()
-            break
-        default:
-            var alert = UIAlertView(title: "网络连接失败", message: "", delegate: self, cancelButtonTitle: "确定")
-            alert.show()
-            waitingView.stopAnimation()
-            break
-        }
+
     }
     func pickerOK(name: NSString) {
         var userDefault = NSUserDefaults.standardUserDefaults()

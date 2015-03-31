@@ -16,7 +16,7 @@ class WaitingAnimation: UIView {
     var waitingTimer = NSTimer();
     var waitingLabelNum = 0;
     var waitingLabelKindNum = 0;
-    var waitingLabelKind = ["登录","获取班次","预定车票","获取车票"]
+    var waitingLabelKind = ["登录","获取班次","预定车票","获取车票","获取校区列表"]
     var waitingLabelString = ["中","中.","中..","中..."]
     override func awakeFromNib() {
         self.layer.masksToBounds = true;

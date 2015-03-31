@@ -441,16 +441,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年级" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73B-Ba-fRW">
-                                <rect key="frame" x="10" y="200" width="300" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="EJ9-TD-bov"/>
-                                    <constraint firstAttribute="height" constant="32" id="dVe-OB-c0T"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzx-Gt-xol">
                                 <rect key="frame" x="252" y="24" width="40" height="40"/>
                                 <constraints>
@@ -485,12 +475,10 @@
                             <constraint firstItem="1Cw-kw-8oV" firstAttribute="leading" secondItem="pnY-ch-63p" secondAttribute="leading" id="5T9-eg-FSz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yzx-Gt-xol" secondAttribute="trailing" constant="12" id="6nC-No-KgV"/>
                             <constraint firstItem="qJO-qi-XUV" firstAttribute="leading" secondItem="pnY-ch-63p" secondAttribute="leading" id="7HW-nA-CrP"/>
-                            <constraint firstItem="73B-Ba-fRW" firstAttribute="top" secondItem="pnY-ch-63p" secondAttribute="topMargin" constant="200" id="CjH-JC-9zn"/>
                             <constraint firstAttribute="centerX" secondItem="aIs-S3-KRF" secondAttribute="centerX" id="DjC-Cg-pt2"/>
                             <constraint firstAttribute="trailing" secondItem="qJO-qi-XUV" secondAttribute="trailing" id="M7s-3C-LQo"/>
                             <constraint firstAttribute="bottomMargin" secondItem="qJO-qi-XUV" secondAttribute="bottom" id="NNL-HF-4Do"/>
                             <constraint firstItem="yzx-Gt-xol" firstAttribute="top" secondItem="NkE-UE-FC8" secondAttribute="bottom" constant="4" id="dSL-T2-2bh"/>
-                            <constraint firstAttribute="centerX" secondItem="73B-Ba-fRW" secondAttribute="centerX" id="gHc-ia-Bgs"/>
                             <constraint firstAttribute="centerX" secondItem="sqk-Hj-hC2" secondAttribute="centerX" id="hfL-6J-Ltj"/>
                             <constraint firstItem="sqk-Hj-hC2" firstAttribute="top" secondItem="NkE-UE-FC8" secondAttribute="bottom" constant="8" id="lhy-G2-WQ0"/>
                             <constraint firstAttribute="trailing" secondItem="1Cw-kw-8oV" secondAttribute="trailing" id="vfX-WJ-Als"/>
@@ -503,6 +491,7 @@
                         <outlet property="tableView" destination="qJO-qi-XUV" id="Kwr-My-PPf"/>
                         <outlet property="userBg" destination="1Cw-kw-8oV" id="0bX-gW-fJt"/>
                         <outlet property="userImage" destination="aIs-S3-KRF" id="iA5-3x-4vH"/>
+                        <outlet property="userName" destination="sqk-Hj-hC2" id="O9w-b0-dVH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LfL-kT-PsN" userLabel="First Responder" sceneMemberID="firstResponder"/>
