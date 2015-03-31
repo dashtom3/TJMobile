@@ -7,15 +7,10 @@
 //
 
 import UIKit
-protocol PageViewDelegate:NSObjectProtocol{
-    func backBusMainViewController()
-}
+
 class PageView: UIView {
-    var delegate:PageViewDelegate?
     @IBOutlet weak var imageView: UIImageView!
-    @IBAction func backView(sender: AnyObject) {
-        delegate?.backBusMainViewController()
-    }
+    
 
     /*
     // Only override drawRect: if you perform custom drawing.

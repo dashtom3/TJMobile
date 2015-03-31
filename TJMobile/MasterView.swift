@@ -15,7 +15,7 @@ class MasterView: UIView, UICollectionViewDataSource,UICollectionViewDelegate,UI
 
     @IBOutlet weak var collectionView: UICollectionView!
     var delegate:MasterViewDelegate?
-
+    var searchState = false
     @IBOutlet weak var search: UISearchBar!
 //    @IBOutlet weak var search: UITextField!
 //    @IBOutlet weak var searchImage: UIImageView!
@@ -31,29 +31,30 @@ class MasterView: UIView, UICollectionViewDataSource,UICollectionViewDelegate,UI
          collectionView.registerNib(UINib(nibName:"MasterCollectionViewCell",bundle:nil),forCellWithReuseIdentifier:"MasterCell")
 //        searchImage.image = UIImage(named: "master_search")?.resizableImageWithCapInsets(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), resizingMode: UIImageResizingMode.Stretch)
     }
+    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        searchState = true
+        return true
+    }
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
         self.searchItemShow(search.text)
+        searchState = false
+        search.resignFirstResponder()
     }
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchItemShow(search.text)
     }
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.searchItemShow(search.text)
+        searchState = false
         search.resignFirstResponder()
     }
     @IBAction func showLeftView(sender: AnyObject) {
-        delegate?.showLeftView()
-    }
-    @IBAction func searchEnd(sender: AnyObject) {
-        self.searchItemShow(search.text)
-    }
-    @IBAction func searchChanged(sender: AnyObject) {
-        self.searchItemShow(search.text)
-    }
-    @IBAction func searchExit(sender: AnyObject) {
-        self.searchItemShow(search.text)
+        if(searchState == false){
+            delegate?.showLeftView()
+        }
     }
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        searchState = false
         search.resignFirstResponder()
     }
     func searchItemShow(searchString:NSString){
@@ -88,6 +89,10 @@ class MasterView: UIView, UICollectionViewDataSource,UICollectionViewDelegate,UI
         return cell
     }
     func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if(searchState == true){
+            search.resignFirstResponder()
+            return false
+        }
         if(cards[indexPath.row].visable != 2){
             return true
         }
@@ -118,5 +123,11 @@ class MasterView: UIView, UICollectionViewDataSource,UICollectionViewDelegate,UI
         delegate?.pushViewController(indexPath.row)
         
     }
-
+    func getSearchState()->Bool{
+        return searchState
+    }
+    func setUserInterfaceEnabled(enabled:Bool){
+        search.userInteractionEnabled = enabled
+        collectionView.userInteractionEnabled = enabled
+    }
 }

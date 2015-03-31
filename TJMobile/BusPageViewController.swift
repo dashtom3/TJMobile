@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BusPageViewController: UIViewController,PageViewDelegate {
+class BusPageViewController: UIViewController,UIScrollViewDelegate{
     @IBOutlet weak var pageControl: UIPageControl!
     var views:[PageView] = [PageView(),PageView(),PageView()]
     let names = ["page_1","page_2","page_3"]
@@ -20,20 +20,23 @@ class BusPageViewController: UIViewController,PageViewDelegate {
             views[i] = (NSBundle.mainBundle().loadNibNamed("PageView", owner: nil, options: nil)[0]) as PageView
             views[i].frame = CGRectMake(self.view.frame.width*CGFloat(i), 0, self.view.frame.width, self.view.frame.height)
             views[i].imageView.image = UIImage(named: names[i])
-            views[i].delegate = self
             scrollView.addSubview(views[i])
         }
         
         // Do any additional setup after loading the view.
     }
-    func backBusMainViewController(){
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func backBusMainViewController(sender: AnyObject) {
+         self.dismissViewControllerAnimated(true, completion: nil)
     }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        var index:Int = (Int)(fabs(scrollView.contentOffset.x)/self.view.frame.size.width)
+        pageControl.currentPage = index
+    }
 
     /*
     // MARK: - Navigation
