@@ -266,13 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TJMobile/LoginViewController.swift"
-            timestampString = "449501523.547635"
+            timestampString = "449555852.789192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "showMasterView(_:)"
-            landmarkType = "5">
+            startingLineNumber = "43"
+            endingLineNumber = "43">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1917,12 +1915,12 @@
                   symbolName = "TJMobile.LoginUserViewController.infoReturn (TJMobile.LoginUserViewController)(Swift.Int) -&gt; ()"
                   moduleName = "TJMobile"
                   urlString = "file:///Users/tia/Desktop/TJMobileRepo/TJMobile/LoginUserViewController.swift"
-                  timestampString = "449555325.634288"
+                  timestampString = "449555982.211606"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "113"
                   endingLineNumber = "113"
-                  offsetFromSymbolStart = "8396">
+                  offsetFromSymbolStart = "8223">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -1931,12 +1929,12 @@
                   symbolName = "TJMobile.LoginUserViewController.infoReturn (TJMobile.LoginUserViewController)(Swift.Int) -&gt; ()"
                   moduleName = "TJMobile"
                   urlString = "file:///Users/tia/Desktop/TJMobileRepo/TJMobile/LoginUserViewController.swift"
-                  timestampString = "449555325.634485"
+                  timestampString = "449555982.212259"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "113"
                   endingLineNumber = "113"
-                  offsetFromSymbolStart = "8704">
+                  offsetFromSymbolStart = "8560">
                </Location>
             </Locations>
          </BreakpointContent>

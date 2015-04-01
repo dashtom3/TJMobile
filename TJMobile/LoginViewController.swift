@@ -1,4 +1,4 @@
-//
+	//
 //  LoginViewController.swift
 //  TJMobile
 //
@@ -24,8 +24,10 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
-        if((NSUserDefaults.standardUserDefaults().valueForKey("login") as NSString).isEqualToString("1")){
-            self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("master") as ViewController, animated: true)
+        if(NSUserDefaults.standardUserDefaults().valueForKey("login") != nil){
+            if((NSUserDefaults.standardUserDefaults().valueForKey("login") as NSString).isEqualToString("1")){
+                self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("master") as ViewController, animated: true)
+            }
         }
     }
     override func didReceiveMemoryWarning() {

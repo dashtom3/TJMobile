@@ -241,5 +241,8 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
         }
         UIView.commitAnimations()
     }
+    override func animationDidStop(anim: CAAnimation!, finished flag: Bool) {
+        self.refresh()
+    }
 }
 
