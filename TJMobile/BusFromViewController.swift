@@ -10,6 +10,7 @@ import UIKit
 
 class BusFromViewController: UIViewController,UITableViewDelegate,UITableViewDataSource  {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nextBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +18,11 @@ class BusFromViewController: UIViewController,UITableViewDelegate,UITableViewDat
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
-        nextBtn.enabled = false
+        if(selectNum[0] == -1){
+            nextBtn.enabled = false
+        }else{
+            nextBtn.enabled = true
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,6 +62,9 @@ class BusFromViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if(routeMatrix[indexPath.row][indexPath.row]==0){
             cell.contentView.alpha = 0.3
             cell.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 0.7)
+        }else if(selectNum[0] == indexPath.row){
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            cell.textLabel?.textColor = UIColor(red: 250/255, green: 150/255, blue: 76/255, alpha: 1)
         }
         return cell
     }

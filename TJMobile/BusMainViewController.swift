@@ -206,6 +206,13 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
     {
         if(indexPath.section == 2){
+            if((NSUserDefaults.standardUserDefaults().valueForKey("userPlace")) != nil){
+                for(var i=0;i<SCHOOL.count;i++){
+                    if((NSUserDefaults.standardUserDefaults().valueForKey("userPlace") as NSString).isEqualToString(SCHOOL[i])){
+                        selectNum[0] = i
+                    }
+                }
+            }
             self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("busfrom") as BusFromViewController , animated: true )
         }
         if(indexPath.section == 1){

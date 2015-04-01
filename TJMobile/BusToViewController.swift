@@ -17,7 +17,11 @@ class BusToViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
-        nextBtn.enabled = false
+        if(selectNum[1] == -1){
+            nextBtn.enabled = false
+        }else{
+            nextBtn.enabled = true
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

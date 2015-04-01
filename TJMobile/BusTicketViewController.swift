@@ -33,10 +33,14 @@ class BusTicketViewController: UIViewController,HttpDelegate {
         // Do any additional setup after loading the view.
     }
     @IBAction func backBusMainView(sender: AnyObject) {
-        self.navigationController?.popToViewController(self.navigationController?.viewControllers[2] as UIViewController, animated: true)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     @IBAction func clickCancelBtn(sender: AnyObject) {
-        self.navigationController?.popToViewController(self.navigationController?.viewControllers[2] as UIViewController, animated: true)
+        for viewController:AnyObject in (self.navigationController?.viewControllers)!{
+            if(viewController.isKindOfClass(BusMainViewController)){
+                self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+            }
+        }
     }
     
     @IBAction func clickOKBtn(sender: AnyObject) {
@@ -66,46 +70,87 @@ class BusTicketViewController: UIViewController,HttpDelegate {
                 if(receiveData2 == "0"){
                     var alert = UIAlertView(title: "没有空位", message: "", delegate: self, cancelButtonTitle: "确定")
                     alert.show()
-                    self.navigationController?.popToViewController(self.navigationController?.viewControllers[3] as UIViewController, animated: true)
+                    for viewController:AnyObject in (self.navigationController?.viewControllers)!{
+                        if(viewController.isKindOfClass(BusMainViewController)){
+                            self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                        }
+                    }
                 }else if(receiveData2 == "1"){
                     var alert = UIAlertView(title: "已订票,不能再抢", message: "", delegate: self, cancelButtonTitle: "确定")
                     alert.show()
-                    self.navigationController?.popToViewController(self.navigationController?.viewControllers[3] as UIViewController, animated: true)
+                    for viewController:AnyObject in (self.navigationController?.viewControllers)!{
+                        if(viewController.isKindOfClass(BusMainViewController)){
+                            self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                        }
+                    }
                 }else if(receiveData2 == "2"){
                     var alert = UIAlertView(title: "抢票机会已无", message: "", delegate: self, cancelButtonTitle: "确定")
                     alert.show()
-                    self.navigationController?.popToViewController(self.navigationController?.viewControllers[3] as UIViewController, animated: true)
+                    for viewController:AnyObject in (self.navigationController?.viewControllers)!{
+                        if(viewController.isKindOfClass(BusMainViewController)){
+                            self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                        }
+                    }
                 }else if(receiveData2 == "3"){
                     var alert = UIAlertView(title: "所有抢票机会已无，回程票已抢好", message: "", delegate: self, cancelButtonTitle: "确定")
                     alert.show()
-                    self.navigationController?.popToViewController(self.navigationController?.viewControllers[3] as UIViewController, animated: true)
+                    for viewController:AnyObject in (self.navigationController?.viewControllers)!{
+                        if(viewController.isKindOfClass(BusMainViewController)){
+                            self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                        }
+                    }
                 }
             }else if(receiveData.substringToIndex(1) == "1"){
                 var alert = UIAlertView(title: "订票成功", message: "", delegate: self, cancelButtonTitle: "确定")
                 alert.show()
-                self.navigationController?.popToViewController(self.navigationController?.viewControllers[3] as UIViewController, animated: true)
+                for viewController:AnyObject in (self.navigationController?.viewControllers)!{
+                    if(viewController.isKindOfClass(BusMainViewController)){
+                        self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                    }
+                }
             }else if(receiveData.substringToIndex(1) == "2"){
                 var alert = UIAlertView(title: "回程票预定成功", message: "", delegate: self, cancelButtonTitle: "确定")
                 alert.show()
-                self.navigationController?.popToViewController(self.navigationController?.viewControllers[3] as UIViewController, animated: true)
+                for viewController:AnyObject in (self.navigationController?.viewControllers)!{
+                    if(viewController.isKindOfClass(BusMainViewController)){
+                        self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                    }
+                }
             }else if(receiveData.substringToIndex(1) == "3"){
                 var alert = UIAlertView(title: "抢票时间已过", message: "请在06:00到24:00之间抢票", delegate: self, cancelButtonTitle: "确定")
                 alert.show()
-                self.navigationController?.popToViewController(self.navigationController?.viewControllers[3] as UIViewController, animated: true)
+                for viewController:AnyObject in (self.navigationController?.viewControllers)!{
+                    if(viewController.isKindOfClass(BusMainViewController)){
+                        self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                    }
+                }
             }
             }else{
                 if(receiveData == "0"){
                     var alert = UIAlertView(title: "退票失败", message: "", delegate: self, cancelButtonTitle: "确定")
                     alert.show()
-                    self.navigationController?.popToViewController(self.navigationController?.viewControllers[3] as UIViewController, animated: true)
+                    for viewController:AnyObject in (self.navigationController?.viewControllers)!{
+                        if(viewController.isKindOfClass(BusMainViewController)){
+                            self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                        }
+                    }
                 }else if(receiveData == "1"){
                     var alert = UIAlertView(title: "退票成功", message: "", delegate: self, cancelButtonTitle: "确定")
                     alert.show()
-                    self.navigationController?.popToViewController(self.navigationController?.viewControllers[3] as UIViewController, animated: true)
+                    for viewController:AnyObject in (self.navigationController?.viewControllers)!{
+                        if(viewController.isKindOfClass(BusMainViewController)){
+                            self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                        }
+                    }
                 }else if(receiveData == "2"){
                     var alert = UIAlertView(title: "非退票时间", message: "订票当天22点前", delegate: self, cancelButtonTitle: "确定")
                     alert.show()
-                    self.navigationController?.popToViewController(self.navigationController?.viewControllers[3] as UIViewController, animated: true)
+                    for viewController:AnyObject in (self.navigationController?.viewControllers)!{
+                        if(viewController.isKindOfClass(BusMainViewController)){
+                            self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                        }
+                    }
+                    
                 }
             }
             waitingView.stopAnimation()

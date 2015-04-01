@@ -810,6 +810,7 @@
                     <navigationItem key="navigationItem" id="p5y-DY-qH8"/>
                     <connections>
                         <outlet property="nextBtn" destination="Cxr-QP-lBe" id="OQ5-py-P81"/>
+                        <outlet property="tableView" destination="pqE-g1-G9c" id="5U3-x7-WOq"/>
                         <segue destination="Km1-PQ-gmJ" kind="push" id="a0T-gr-oPi"/>
                     </connections>
                 </viewController>
