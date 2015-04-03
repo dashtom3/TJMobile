@@ -11,8 +11,12 @@ enum PIC{
     case PERSON
     case BACKGROUND
 }
+protocol popUserViewDelegate:NSObjectProtocol{
+    func popUserViewController()
+}
 class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,PickerViewDelegate {
     //var title = ["常住校区","寝室","用户头像","封面","退出登录"]
+    var delegate:popUserViewDelegate?
     @IBOutlet weak var userName: UILabel!
     let userTitle = [["常住校区"],["用户头像","封面"],["退出登录"]]
     let detailTitle = ["四平路校区"]
@@ -194,7 +198,10 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         if(indexPath.section == 2){
             NSUserDefaults.standardUserDefaults().setObject("0", forKey: "login")
+            //self.navigationController?.popViewControllerAnimated(true)
+            delegate?.popUserViewController()
             self.dismissViewControllerAnimated(true, completion: nil)
+
         }
     }
 }

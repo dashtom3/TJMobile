@@ -10,19 +10,17 @@ import UIKit
 
 class BusPageViewController: UIViewController,UIScrollViewDelegate{
     @IBOutlet weak var pageControl: UIPageControl!
-    var views:[PageView] = [PageView(),PageView(),PageView()]
+    var views:[PageView] = [PageView(frame: CGRectZero) ,PageView(frame: CGRectZero),PageView(frame: CGRectZero)]
     let names = ["page_1","page_2","page_3"]
     @IBOutlet weak var scrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.contentSize = CGSizeMake(self.view.frame.width*CGFloat(names.count), self.view.frame.height)
         for(var i = 0;i<names.count;i++){
-            views[i] = (NSBundle.mainBundle().loadNibNamed("PageView", owner: nil, options: nil)[0]) as PageView
-            views[i].frame = CGRectMake(self.view.frame.width*CGFloat(i), 0, self.view.frame.width, self.view.frame.height)
+            views[i] = PageView(frame: CGRectMake(self.view.frame.width*CGFloat(i), 0, self.view.frame.width, self.view.frame.height))
             views[i].imageView.image = UIImage(named: names[i])
             scrollView.addSubview(views[i])
         }
-        
         // Do any additional setup after loading the view.
     }
     @IBAction func backBusMainViewController(sender: AnyObject) {
@@ -47,5 +45,5 @@ class BusPageViewController: UIViewController,UIScrollViewDelegate{
         // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

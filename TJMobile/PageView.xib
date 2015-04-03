@@ -10,17 +10,11 @@
             <rect key="frame" x="0.0" y="0.0" width="408" height="462"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YYe-AS-LjD">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YYe-AS-LjD">
                     <rect key="frame" x="0.0" y="0.0" width="408" height="462"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstAttribute="bottom" secondItem="YYe-AS-LjD" secondAttribute="bottom" id="Dws-eP-ZYH"/>
-                <constraint firstItem="YYe-AS-LjD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="PPn-IC-qBt"/>
-                <constraint firstAttribute="trailing" secondItem="YYe-AS-LjD" secondAttribute="trailing" id="bwc-KP-6f4"/>
-                <constraint firstItem="YYe-AS-LjD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="oEQ-uT-aJF"/>
-            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

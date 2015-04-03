@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsViewDelegate,UIActionSheetDelegate{
+class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsViewDelegate,UIActionSheetDelegate,popUserViewDelegate{
     
     
     var leftView = LeftView()
@@ -85,13 +85,23 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
             break
         }
     }
+    func popUserViewController(){
+        for viewController:AnyObject in (self.navigationController?.viewControllers)!{
+            if(viewController.isKindOfClass(LoginViewController)){
+                self.navigationController?.popToViewController(viewController as UIViewController, animated: false)
+            }
+        }
+    }
     func presentSettingViewController(){
         //var nav = UINavigationController(rootViewController:self.storyboard?.instantiateViewControllerWithIdentifier("setting") as SettingViewController)
 
         self.presentViewController(self.storyboard?.instantiateViewControllerWithIdentifier("nav")  as UIViewController, animated: true, completion: nil)
     }
     func presentUserViewController() {
-        self.presentViewController(self.storyboard?.instantiateViewControllerWithIdentifier("user") as UserViewController, animated: true, completion: nil)
+        var userViewController = self.storyboard?.instantiateViewControllerWithIdentifier("user") as UserViewController
+        userViewController.delegate = self
+        self.presentViewController(userViewController, animated: true, completion: nil)
+        
     }
     func showLoginViewController(){
     self.navigationController?.popToViewController(self.navigationController?.viewControllers[0] as UIViewController, animated: true)

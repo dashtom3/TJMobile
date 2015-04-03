@@ -548,6 +548,15 @@
                                     <outlet property="delegate" destination="i41-To-Skp" id="aIa-Vx-6zm"/>
                                 </connections>
                             </scrollView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJf-dI-BwU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="t1l-3m-xNH"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem id="JNJ-9K-LLk"/>
+                                </items>
+                            </navigationBar>
                             <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="IGk-sB-vYk">
                                 <rect key="frame" x="140" y="532" width="40" height="36"/>
                                 <constraints>
@@ -569,16 +578,31 @@
                                     <action selector="backBusMainViewController:" destination="i41-To-Skp" eventType="touchUpInside" id="sL9-XE-jyu"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如何预约" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TN-Fb-3ja">
+                                <rect key="frame" x="40" y="28" width="240" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="6qf-gc-u34"/>
+                                    <constraint firstAttribute="width" constant="240" id="W6O-US-YGT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TuJ-Jx-m1T" firstAttribute="top" secondItem="7P5-0b-QYl" secondAttribute="topMargin" constant="20" id="52C-t5-L7h"/>
                             <constraint firstAttribute="trailing" secondItem="TuJ-Jx-m1T" secondAttribute="trailing" constant="12" id="7LO-BD-XXY"/>
+                            <constraint firstItem="ZJf-dI-BwU" firstAttribute="top" secondItem="7P5-0b-QYl" secondAttribute="topMargin" id="9hx-fs-64s"/>
                             <constraint firstAttribute="bottom" secondItem="IGk-sB-vYk" secondAttribute="bottom" id="HOG-nW-hDS"/>
                             <constraint firstAttribute="trailing" secondItem="TSJ-GP-psO" secondAttribute="trailing" id="K8X-z9-17s"/>
+                            <constraint firstAttribute="centerX" secondItem="3TN-Fb-3ja" secondAttribute="centerX" id="MWj-b1-gfb"/>
                             <constraint firstAttribute="centerX" secondItem="IGk-sB-vYk" secondAttribute="centerX" id="RSA-ck-z3Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZJf-dI-BwU" secondAttribute="trailing" constant="-16" id="Rtk-7a-Q7G"/>
                             <constraint firstItem="TSJ-GP-psO" firstAttribute="top" secondItem="7P5-0b-QYl" secondAttribute="top" id="UPI-gU-3ga"/>
+                            <constraint firstItem="3TN-Fb-3ja" firstAttribute="top" secondItem="7P5-0b-QYl" secondAttribute="topMargin" constant="28" id="ZUH-cF-h9z"/>
                             <constraint firstItem="TSJ-GP-psO" firstAttribute="leading" secondItem="7P5-0b-QYl" secondAttribute="leading" id="e3Q-PH-qpg"/>
+                            <constraint firstItem="ZJf-dI-BwU" firstAttribute="leading" secondItem="7P5-0b-QYl" secondAttribute="leadingMargin" constant="-16" id="jhm-Qr-777"/>
                             <constraint firstItem="pZI-Lu-bBH" firstAttribute="top" secondItem="TSJ-GP-psO" secondAttribute="bottom" id="yhW-pU-nUk"/>
                         </constraints>
                     </view>
