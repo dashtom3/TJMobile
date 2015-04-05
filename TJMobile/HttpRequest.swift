@@ -79,18 +79,16 @@ class HttpRequest: NSObject,NSURLConnectionDelegate,NSURLConnectionDataDelegate{
         getRequest(url)
     }
     //统一身份认证
-    func servletISLogin(username:NSString,password:NSString){
+    func servletISLogin(username:NSString,password:NSString)->Bool{
         var url = "http://tjis2.tongji.edu.cn:58080/amserver/UI/Login?Login.Token1="+username+"&Login.Token2="+password+"&gx_charset=UTF-8"
-        var req = NSMutableURLRequest(URL: NSURL(string: url)!, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 10)
-        req.HTTPMethod = "POST"
-        var header  = NSMutableDictionary()
-        header.setValue("application/x-www-form-urlencoded; charset=utf-8", forKey: "Content-Type")
-        header.setValue("text/html", forKey:"Accept")
-        header.setValue("no-cache" ,forKey:"Cache-Control")
-        header.setValue("no-cache", forKey:"Pragma")
-        header.setValue("close", forKey:"Connection")
-        req.allHTTPHeaderFields = header
-        var connection = NSURLConnection(request: req, delegate: self)
+        if((NSURL(string: url)) != nil){
+            var req = NSMutableURLRequest(URL: NSURL(string: url)!, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 10)
+            req.HTTPMethod = "POST"
+            var connection = NSURLConnection(request: req, delegate: self)
+            return true
+        }
+        receiveStr = "Authentication failed"
+        return false
     }
     func servletLoginPage(){
         var url = "http://tjis2.tongji.edu.cn:58080/amconsole/base/AMAdminFrame"

@@ -270,7 +270,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
-            endingLineNumber = "43">
+            endingLineNumber = "43"
+            landmarkName = "showMasterView(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -408,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TJMobile/HttpRequest.swift"
-            timestampString = "449500805.210911"
+            timestampString = "449908465.762851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "connection(_:didReceiveData:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -424,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TJMobile/HttpRequest.swift"
-            timestampString = "449500805.210911"
+            timestampString = "449908465.762851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "connection(_:didReceiveResponse:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1900,11 +1902,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TJMobile/LoginUserViewController.swift"
-            timestampString = "449501523.547635"
+            timestampString = "449908465.762851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "infoReturn(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1916,11 +1918,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TJMobile/LoginUserViewController.swift"
-            timestampString = "449501523.547635"
+            timestampString = "449908465.762851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "infoReturn(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1932,11 +1934,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TJMobile/LoginUserViewController.swift"
-            timestampString = "449501523.547635"
+            timestampString = "449908465.762851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "infoReturn(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1948,11 +1950,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TJMobile/LoginUserViewController.swift"
-            timestampString = "449501523.547635"
+            timestampString = "449908465.762851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "infoReturn(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1964,11 +1966,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TJMobile/LoginUserViewController.swift"
-            timestampString = "449501523.547635"
+            timestampString = "449908465.762851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "infoReturn(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1980,11 +1982,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TJMobile/LoginUserViewController.swift"
-            timestampString = "449501523.547635"
+            timestampString = "449908465.762851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "infoReturn(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1996,11 +1998,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TJMobile/LoginUserViewController.swift"
-            timestampString = "449501523.547635"
+            timestampString = "449908465.762851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "infoReturn(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2012,11 +2014,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TJMobile/LoginUserViewController.swift"
-            timestampString = "449501523.547635"
+            timestampString = "449908465.762851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "infoReturn(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2028,11 +2030,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TJMobile/LoginUserViewController.swift"
-            timestampString = "449501523.547635"
+            timestampString = "449908465.762851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "infoReturn(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2044,11 +2046,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TJMobile/LoginUserViewController.swift"
-            timestampString = "449501523.547635"
+            timestampString = "449908465.762851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "infoReturn(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2200,7 +2202,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TJMobile/UserViewController.swift"
@@ -2210,6 +2212,38 @@
             startingLineNumber = "201"
             endingLineNumber = "201"
             landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TJMobile/HttpRequest.swift"
+            timestampString = "449908226.944174"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "servletISLogin(_:password:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TJMobile/HttpRequest.swift"
+            timestampString = "449908235.729917"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "servletISLogin(_:password:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
