@@ -72,7 +72,6 @@ var selectNum:[Int] = [-1,-1,0]
 //用户 车票信息
 var routeLine = NSArray()
 var httpState = 0//0 登陆 1 查询 2 抢票 3 退票 
-var userInfo = NSDictionary()
 
 var routeList = NSArray()
 var routeMatrix = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]

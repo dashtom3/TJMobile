@@ -60,10 +60,11 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         waitingView.stopAnimation()
                     }else{
                         var error:NSError?
-                        userInfo = NSJSONSerialization.JSONObjectWithData(httpRequest.receiveDate, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
-                        routeList = userInfo.valueForKey("routelist") as NSArray
+                        //userInfo = NSJSONSerialization.JSONObjectWithData(httpRequest.receiveDate, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
+                        //routeList = userInfo.valueForKey("routelist") as NSArray
+                        var userInfo = NSJSONSerialization.JSONObjectWithData(httpRequest.receiveDate, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSArray
                         var nsDictionary:NSDictionary
-                        for nsDictionary in routeList{
+                        for nsDictionary in userInfo{
                             for(var i = 0; i < SCHOOL.count;i++){
                                 if(SCHOOL[i]==nsDictionary.valueForKey("start") as NSString){
                                     for(var j = 0; j < SCHOOL.count;j++){

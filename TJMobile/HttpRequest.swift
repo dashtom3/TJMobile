@@ -44,7 +44,8 @@ class HttpRequest: NSObject,NSURLConnectionDelegate,NSURLConnectionDataDelegate{
         getRequest(url)
     }
     func servletLoginSelf(){
-        var url = basicUrl+"LoginServlet?username=1336313&password=504083&weekend=0"
+        //var url = basicUrl+"LoginServlet?username=1336313&password=504083&weekend=0"
+        var url = "http://jiading.tongji.edu.cn:8080/TJbus2/BusServlet"
         println("http发送请求:"+url)
         getRequest(url)
     }
