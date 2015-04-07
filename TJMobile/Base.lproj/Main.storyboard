@@ -419,7 +419,7 @@
                                     <outlet property="delegate" destination="4EG-Hx-8wB" id="8ko-0n-gXv"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Cw-kw-8oV">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Cw-kw-8oV">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="256"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="256" id="wb5-lM-lUI"/>
@@ -455,7 +455,7 @@
                                     <action selector="closeLogin:" destination="4EG-Hx-8wB" eventType="touchUpInside" id="toj-Ry-2Xr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIs-S3-KRF">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIs-S3-KRF">
                                 <rect key="frame" x="110" y="78" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="IKN-aG-2m0"/>
