@@ -204,6 +204,12 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
     {
         return true
     }
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        if(indexPath.section == 0 && TICKET.num == 0 && indexPath.row == 0){
+            return nil
+        }
+        return  indexPath
+    }
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
     {
         if(indexPath.section == 2){
@@ -245,10 +251,10 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     var busTimeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("bustime") as BusTimeViewController
                     self.navigationController?.pushViewController(busTimeViewController, animated: true )
                 }
-            }else{
-            var busTicketViewController = self.storyboard?.instantiateViewControllerWithIdentifier("busticket") as BusTicketViewController
-            self.navigationController?.pushViewController(busTicketViewController, animated: true )
-            busTicketViewController.styleNum = indexPath.row
+            }else if(TICKET.num != 0){
+                var busTicketViewController = self.storyboard?.instantiateViewControllerWithIdentifier("busticket") as BusTicketViewController
+                self.navigationController?.pushViewController(busTicketViewController, animated: true )
+                busTicketViewController.styleNum = indexPath.row
             }
         }
     }
