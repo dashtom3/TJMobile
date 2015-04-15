@@ -23,7 +23,7 @@ class BusTicketViewController: UIViewController,HttpDelegate {
         cancelBtn.layer.cornerRadius = 4
         okBtn.layer.cornerRadius = 4
         self.setStyle(styleNum)
-        waitingView = NSBundle.mainBundle().loadNibNamed("WaitingAnimation", owner: nil, options: nil)[0] as WaitingAnimation
+        waitingView = NSBundle.mainBundle().loadNibNamed("WaitingAnimation", owner: nil, options: nil)[0] as! WaitingAnimation
         waitingView.frame.origin.x = self.view.frame.width/2-80
         waitingView.frame.origin.y = self.view.frame.height/2-80
         waitingView.alpha = 0.0
@@ -38,7 +38,7 @@ class BusTicketViewController: UIViewController,HttpDelegate {
     @IBAction func clickCancelBtn(sender: AnyObject) {
         for viewController:AnyObject in (self.navigationController?.viewControllers)!{
             if(viewController.isKindOfClass(BusMainViewController)){
-                self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                self.navigationController?.popToViewController(viewController as! UIViewController, animated: true)
             }
         }
     }
@@ -47,7 +47,7 @@ class BusTicketViewController: UIViewController,HttpDelegate {
         waitingView.startAnimation()
         var userDefault = NSUserDefaults.standardUserDefaults()
         if(okBtn.titleLabel?.text == "确认预约"){
-        httpRequest.servletBookTicket(userDefault.objectForKey("username") as NSString, ticket_time: "10000", bus_id: routeLine.objectAtIndex(selectNum[2]).valueForKey("bus_id") as NSString)
+        httpRequest.servletBookTicket(userDefault.objectForKey("username") as! NSString, ticket_time: "10000", bus_id: routeLine.objectAtIndex(selectNum[2]).valueForKey("bus_id") as! NSString)
         }else if (okBtn.titleLabel?.text == "取消凭证"){
             httpRequest.servletCancelTicket(TICKET.tickets[styleNum].ticket_id, bus_id: TICKET.tickets[styleNum].bus_id)
         }
@@ -72,7 +72,7 @@ class BusTicketViewController: UIViewController,HttpDelegate {
                     alert.show()
                     for viewController:AnyObject in (self.navigationController?.viewControllers)!{
                         if(viewController.isKindOfClass(BusMainViewController)){
-                            self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                            self.navigationController?.popToViewController(viewController as! UIViewController, animated: true)
                         }
                     }
                 }else if(receiveData2 == "1"){
@@ -80,7 +80,7 @@ class BusTicketViewController: UIViewController,HttpDelegate {
                     alert.show()
                     for viewController:AnyObject in (self.navigationController?.viewControllers)!{
                         if(viewController.isKindOfClass(BusMainViewController)){
-                            self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                            self.navigationController?.popToViewController(viewController as! UIViewController, animated: true)
                         }
                     }
                 }else if(receiveData2 == "2"){
@@ -88,7 +88,7 @@ class BusTicketViewController: UIViewController,HttpDelegate {
                     alert.show()
                     for viewController:AnyObject in (self.navigationController?.viewControllers)!{
                         if(viewController.isKindOfClass(BusMainViewController)){
-                            self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                            self.navigationController?.popToViewController(viewController as! UIViewController, animated: true)
                         }
                     }
                 }else if(receiveData2 == "3"){
@@ -96,7 +96,7 @@ class BusTicketViewController: UIViewController,HttpDelegate {
                     alert.show()
                     for viewController:AnyObject in (self.navigationController?.viewControllers)!{
                         if(viewController.isKindOfClass(BusMainViewController)){
-                            self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                            self.navigationController?.popToViewController(viewController as! UIViewController, animated: true)
                         }
                     }
                 }
@@ -105,7 +105,7 @@ class BusTicketViewController: UIViewController,HttpDelegate {
                 alert.show()
                 for viewController:AnyObject in (self.navigationController?.viewControllers)!{
                     if(viewController.isKindOfClass(BusMainViewController)){
-                        self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                        self.navigationController?.popToViewController(viewController as! UIViewController, animated: true)
                     }
                 }
             }else if(receiveData.substringToIndex(1) == "2"){
@@ -113,7 +113,7 @@ class BusTicketViewController: UIViewController,HttpDelegate {
                 alert.show()
                 for viewController:AnyObject in (self.navigationController?.viewControllers)!{
                     if(viewController.isKindOfClass(BusMainViewController)){
-                        self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                        self.navigationController?.popToViewController(viewController as! UIViewController, animated: true)
                     }
                 }
             }else if(receiveData.substringToIndex(1) == "3"){
@@ -121,7 +121,7 @@ class BusTicketViewController: UIViewController,HttpDelegate {
                 alert.show()
                 for viewController:AnyObject in (self.navigationController?.viewControllers)!{
                     if(viewController.isKindOfClass(BusMainViewController)){
-                        self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                        self.navigationController?.popToViewController(viewController as! UIViewController, animated: true)
                     }
                 }
             }
@@ -131,7 +131,7 @@ class BusTicketViewController: UIViewController,HttpDelegate {
                     alert.show()
                     for viewController:AnyObject in (self.navigationController?.viewControllers)!{
                         if(viewController.isKindOfClass(BusMainViewController)){
-                            self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                            self.navigationController?.popToViewController(viewController as! UIViewController, animated: true)
                         }
                     }
                 }else if(receiveData == "1"){
@@ -139,7 +139,7 @@ class BusTicketViewController: UIViewController,HttpDelegate {
                     alert.show()
                     for viewController:AnyObject in (self.navigationController?.viewControllers)!{
                         if(viewController.isKindOfClass(BusMainViewController)){
-                            self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                            self.navigationController?.popToViewController(viewController as! UIViewController, animated: true)
                         }
                     }
                 }else if(receiveData == "2"){
@@ -147,7 +147,7 @@ class BusTicketViewController: UIViewController,HttpDelegate {
                     alert.show()
                     for viewController:AnyObject in (self.navigationController?.viewControllers)!{
                         if(viewController.isKindOfClass(BusMainViewController)){
-                            self.navigationController?.popToViewController(viewController as UIViewController, animated: true)
+                            self.navigationController?.popToViewController(viewController as! UIViewController, animated: true)
                         }
                     }
                     
@@ -167,10 +167,10 @@ class BusTicketViewController: UIViewController,HttpDelegate {
         var dateConverter = DateConverter()
         if(num == -1){
             labelLine.attributedText = stringChange(SCHOOL[selectNum[0]], busTo: SCHOOL[selectNum[1]])
-            labelTime.text = (routeLine.objectAtIndex(selectNum[2]) as NSDictionary).valueForKey("time") as NSString
+            labelTime.text = (routeLine.objectAtIndex(selectNum[2]) as! NSDictionary).valueForKey("time") as! NSString as String
             var tomorrowDate = NSDate(timeIntervalSinceNow: NSTimeInterval(86400))
             
-            var dayString = dateConverter.getMMFromDate(tomorrowDate)+"月"+dateConverter.getddFromDate(tomorrowDate)+"日 "+dateConverter.getDayFromDate(tomorrowDate)
+            var dayString = (dateConverter.getMMFromDate(tomorrowDate) as String)+"月"+(dateConverter.getddFromDate(tomorrowDate) as String)+"日 "+(dateConverter.getDayFromDate(tomorrowDate) as String)
             labelDay.text = dayString
             okBtn.setTitle("确认预约", forState:UIControlState.Normal)
             cancelBtn.alpha = 1.0
@@ -181,14 +181,14 @@ class BusTicketViewController: UIViewController,HttpDelegate {
         }else{
             labelLine.attributedText = stringChange(TICKET.tickets[num].busFrom,busTo:TICKET.tickets[num].busTo)
             var dateBooked = dateConverter.getDateFromNSString(TICKET.tickets[num].time)
-            labelTime.text = dateConverter.getHHmmFromDate(dateBooked)
-            labelDay.text = dateConverter.getMMFromDate(dateBooked)+"月"+dateConverter.getddFromDate(dateBooked)+"日 "+dateConverter.getDayFromDate(dateBooked)
+            labelTime.text = dateConverter.getHHmmFromDate(dateBooked) as String
+            labelDay.text = (dateConverter.getMMFromDate(dateBooked) as String)+"月"+(dateConverter.getddFromDate(dateBooked) as String)+"日 "+(dateConverter.getDayFromDate(dateBooked) as String)
             okBtn.setTitle("取消凭证", forState:UIControlState.Normal)
             cancelBtn.alpha = 0.0
         }
     }
     func stringChange(busFrom:NSString,busTo:NSString)->NSMutableAttributedString{
-        var str:NSMutableAttributedString = NSMutableAttributedString(string: "从"+busFrom+"到"+busTo)
+        var str:NSMutableAttributedString = NSMutableAttributedString(string: "从"+(busFrom as String)+"到"+(busTo as String))
         str.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSMakeRange(1,busFrom.length))
         str.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSMakeRange(str.length-busTo.length,busTo.length))
         return str

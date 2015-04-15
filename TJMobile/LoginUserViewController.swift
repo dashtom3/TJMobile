@@ -14,11 +14,11 @@ class LoginUserViewController: UIViewController,UserLoginDelegate,HttpDelegate {
     var httpRequest = HttpRequest()
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginView = NSBundle.mainBundle().loadNibNamed("LoginView", owner: nil, options: nil)[0] as LoginView
+        loginView = NSBundle.mainBundle().loadNibNamed("LoginView", owner: nil, options: nil)[0] as! LoginView
         loginView.delegate = self
         loginView.frame = self.view.frame
         self.view.addSubview(loginView)
-        waitingView = NSBundle.mainBundle().loadNibNamed("WaitingAnimation", owner: nil, options: nil)[0] as WaitingAnimation
+        waitingView = NSBundle.mainBundle().loadNibNamed("WaitingAnimation", owner: nil, options: nil)[0] as! WaitingAnimation
         waitingView.frame.origin.x = self.view.frame.width/2-80
         waitingView.frame.origin.y = self.view.frame.height/2-80
         waitingView.alpha = 0.0
@@ -43,7 +43,7 @@ class LoginUserViewController: UIViewController,UserLoginDelegate,HttpDelegate {
     }
     func back() {
         //self.navigationController?.popViewControllerAnimated(true)
-        self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("master") as ViewController, animated: true)
+        self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("master") as! ViewController, animated: true)
     }
     func infoReturn(recallNum:Int){
         switch recallNum{
@@ -61,7 +61,7 @@ class LoginUserViewController: UIViewController,UserLoginDelegate,HttpDelegate {
                 userDefault.setObject(loginView.password.text, forKey: "password")
                 userDefault.setObject("1", forKey: "login")
                 waitingView.stopAnimation()
-                self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("master") as ViewController, animated: true)
+                self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("master") as! ViewController, animated: true)
             }else{
                 var range = httpRequest.receiveStr.rangeOfString("UMUserPage?")
                 if(range.length>0){

@@ -23,7 +23,7 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
         tableView.backgroundColor = UIColor.clearColor()
         //tableView.contentInset.top = -20
         self.edgesForExtendedLayout = UIRectEdge.allZeros
-        waitingView = NSBundle.mainBundle().loadNibNamed("WaitingAnimation", owner: nil, options: nil)[0] as WaitingAnimation
+        waitingView = NSBundle.mainBundle().loadNibNamed("WaitingAnimation", owner: nil, options: nil)[0] as! WaitingAnimation
         waitingView.frame.origin.x = self.view.frame.width/2-80
         waitingView.frame.origin.y = self.view.frame.height/2-80
         waitingView.alpha = 0.0
@@ -62,14 +62,14 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         var error:NSError?
                         //userInfo = NSJSONSerialization.JSONObjectWithData(httpRequest.receiveDate, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
                         //routeList = userInfo.valueForKey("routelist") as NSArray
-                        var userInfo = NSJSONSerialization.JSONObjectWithData(httpRequest.receiveDate, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSArray
+                        var userInfo = NSJSONSerialization.JSONObjectWithData(httpRequest.receiveDate, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSArray
                         var nsDictionary:NSDictionary
                         for nsDictionary in userInfo{
                             for(var i = 0; i < SCHOOL.count;i++){
-                                if(SCHOOL[i]==nsDictionary.valueForKey("start") as NSString){
+                                if(SCHOOL[i]==nsDictionary.valueForKey("start") as? NSString){
                                     for(var j = 0; j < SCHOOL.count;j++){
-                                        if(SCHOOL[j]==nsDictionary.valueForKey("end") as NSString){
-                                            routeMatrix[i][j] = nsDictionary.valueForKey("route_id") as Int
+                                        if(SCHOOL[j]==nsDictionary.valueForKey("end") as? NSString){
+                                            routeMatrix[i][j] = nsDictionary.valueForKey("route_id") as! Int
                                             routeMatrix[i][i] = 1
                                         }
                                     }
@@ -77,17 +77,17 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
                             }
                         }
                         waitingView.waitingLabelKindNum = 3;
-                        httpRequest.servletGetTicket(NSUserDefaults.standardUserDefaults().objectForKey("username") as NSString, curtime: NSString(format: "%d", Int(NSTimeIntervalSince1970)) , history: "0")
+                        httpRequest.servletGetTicket(NSUserDefaults.standardUserDefaults().objectForKey("username")as! NSString, curtime: NSString(format: "%d", Int(NSTimeIntervalSince1970)) , history: "0")
                     }
                     }else{
                         var error:NSError?
-                        var tickets = NSJSONSerialization.JSONObjectWithData(httpRequest.receiveDate, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSArray
+                        var tickets = NSJSONSerialization.JSONObjectWithData(httpRequest.receiveDate, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSArray
                         var ticket = NSDictionary()
                         TICKET.tickets = []
                         TICKET.todayNum = 0;
                         for(var i = 0;i<tickets.count;i++){
-                            var ticket:NSDictionary = tickets[i] as NSDictionary
-                            var ticket2 = ticketInfo(time: ticket.valueForKey("ticket_time") as NSString, busFrom: ticket.valueForKey("start") as NSString, busTo: ticket.valueForKey("end") as NSString, bus_id: ticket.valueForKey("bus_id") as NSString, ticket_id: NSString(format: "%d",ticket.valueForKey("id") as Int))
+                            var ticket:NSDictionary = tickets[i] as! NSDictionary
+                            var ticket2 = ticketInfo(time: ticket.valueForKey("ticket_time") as! NSString, busFrom: ticket.valueForKey("start") as! NSString, busTo: ticket.valueForKey("end") as! NSString, bus_id: ticket.valueForKey("bus_id") as! NSString, ticket_id: NSString(format: "%d",ticket.valueForKey("id") as! Int))
                             var dateConverter = DateConverter()
                             var dateBooked = dateConverter.getDateFromNSString(ticket2.time)
                             var day2 = dateConverter.getddFromDate(dateBooked)
@@ -116,13 +116,13 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
         userDefault.setObject(name, forKey: "userPlace")
         tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 1)], withRowAnimation: UITableViewRowAnimation.Automatic)
     }
-    func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 3
     }
-    func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
     }
-    func tableView(tableView: UITableView!, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -145,7 +145,7 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
         return 1
     }
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if(indexPath.section == 0){
             if(indexPath.row == TICKET.num && TICKET.num != 0){
                 return 46
@@ -161,11 +161,11 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         var cell: UITableViewCell = UITableViewCell()
         cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: nil)
-        var cell1 = tableView.dequeueReusableCellWithIdentifier("BusCell") as BusTicketCell
-        var pickerCell = tableView.dequeueReusableCellWithIdentifier("PickerCell") as UserPickerViewCell
+        var cell1 = tableView.dequeueReusableCellWithIdentifier("BusCell")as! BusTicketCell
+        var pickerCell = tableView.dequeueReusableCellWithIdentifier("PickerCell") as! UserPickerViewCell
         if(indexPath.section == 0){
             if(indexPath.row == TICKET.num && TICKET.num != 0){
-                var cell2 = tableView.dequeueReusableCellWithIdentifier("busAddCell") as BusBackCell
+                var cell2 = tableView.dequeueReusableCellWithIdentifier("busAddCell") as! BusBackCell
                 return cell2
             }
             cell1.setStyle(indexPath.row)
@@ -175,7 +175,7 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
             if(select == true && indexPath.row == 1){
                 pickerCell.delegate = self
                 if((NSUserDefaults.standardUserDefaults().valueForKey("userPlace")) != nil){
-                    pickerCell.setSelect(NSUserDefaults.standardUserDefaults().valueForKey("userPlace") as NSString)
+                    pickerCell.setSelect(NSUserDefaults.standardUserDefaults().valueForKey("userPlace") as! NSString)
                 }
                 return pickerCell
             }
@@ -183,7 +183,7 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
             if(indexPath.row==0){
                 //TODO 得到常住校区
                 if((NSUserDefaults.standardUserDefaults().valueForKey("userPlace")) != nil){
-                    cell.detailTextLabel?.text = NSUserDefaults.standardUserDefaults().valueForKey("userPlace") as NSString
+                    cell.detailTextLabel?.text = NSUserDefaults.standardUserDefaults().valueForKey("userPlace") as! NSString as String
                 }else{
                     cell.detailTextLabel?.text = "四平路校区"
                 }
@@ -200,7 +200,7 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     
-    func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
     {
         return true
     }
@@ -210,17 +210,17 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
         return  indexPath
     }
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         if(indexPath.section == 2){
             if((NSUserDefaults.standardUserDefaults().valueForKey("userPlace")) != nil){
                 for(var i=0;i<SCHOOL.count;i++){
-                    if((NSUserDefaults.standardUserDefaults().valueForKey("userPlace") as NSString).isEqualToString(SCHOOL[i])){
+                    if((NSUserDefaults.standardUserDefaults().valueForKey("userPlace") as! NSString).isEqualToString(SCHOOL[i])){
                         selectNum[0] = i
                     }
                 }
             }
-            self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("busfrom") as BusFromViewController , animated: true )
+            self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("busfrom") as! BusFromViewController , animated: true )
         }
         if(indexPath.section == 1){
             if(indexPath.row == 0){
@@ -237,7 +237,7 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 num++
             }
             if(indexPath.row - num == 1){
-                self.presentViewController(self.storyboard?.instantiateViewControllerWithIdentifier("pagecontent") as BusPageViewController, animated: true, completion: nil)
+                self.presentViewController(self.storyboard?.instantiateViewControllerWithIdentifier("pagecontent") as! BusPageViewController, animated: true, completion: nil)
             }
         }
         if(indexPath.section == 0){
@@ -248,11 +248,11 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     var alert = UIAlertView(title: "", message: "暂无返回车次", delegate: self, cancelButtonTitle: "确定")
                     alert.show()
                 }else{
-                    var busTimeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("bustime") as BusTimeViewController
+                    var busTimeViewController = self.storyboard?.instantiateViewControllerWithIdentifier("bustime") as! BusTimeViewController
                     self.navigationController?.pushViewController(busTimeViewController, animated: true )
                 }
             }else if(TICKET.num != 0){
-                var busTicketViewController = self.storyboard?.instantiateViewControllerWithIdentifier("busticket") as BusTicketViewController
+                var busTicketViewController = self.storyboard?.instantiateViewControllerWithIdentifier("busticket") as! BusTicketViewController
                 self.navigationController?.pushViewController(busTicketViewController, animated: true )
                 busTicketViewController.styleNum = indexPath.row
             }

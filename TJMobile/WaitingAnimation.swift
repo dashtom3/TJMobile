@@ -32,7 +32,7 @@ class WaitingAnimation: UIView {
     func stopAnimation(){
         waiting = false
         self.alpha = 0.0
-        waitingTimer.fireDate = NSDate.distantFuture() as NSDate
+        waitingTimer.fireDate = NSDate.distantFuture() as! NSDate
         waitingActivity.stopAnimating()
     }
     func waitingLabelAnimation(){

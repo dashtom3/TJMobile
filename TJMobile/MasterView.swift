@@ -53,7 +53,7 @@ class MasterView: UIView, UICollectionViewDataSource,UICollectionViewDelegate,UI
             delegate?.showLeftView()
         }
     }
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         searchState = false
         search.resignFirstResponder()
     }
@@ -67,7 +67,7 @@ class MasterView: UIView, UICollectionViewDataSource,UICollectionViewDelegate,UI
         }else{
             for(var i=0;i<cards.count;i++){
                 if(cards[i].visable != 2){
-                    if(cards[i].labelName.rangeOfString(searchString).location == NSNotFound){
+                    if(cards[i].labelName.rangeOfString(searchString as String).location == NSNotFound){
                         cards[i].visable = 0
                     }else{
                         cards[i].visable = 1
@@ -84,7 +84,7 @@ class MasterView: UIView, UICollectionViewDataSource,UICollectionViewDelegate,UI
         collectionView.reloadData()
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell = collectionView .dequeueReusableCellWithReuseIdentifier("MasterCell", forIndexPath: indexPath) as MasterCollectionViewCell
+        var cell = collectionView .dequeueReusableCellWithReuseIdentifier("MasterCell", forIndexPath: indexPath) as! MasterCollectionViewCell
         cell.setStyle(indexPath.row)
         return cell
     }
@@ -110,13 +110,13 @@ class MasterView: UIView, UICollectionViewDataSource,UICollectionViewDelegate,UI
         collectionView.deselectItemAtIndexPath(indexPath, animated: false)
         for(var i = 0;i < collectionView.numberOfItemsInSection(0);i++){
             if(i == indexPath.row){
-                var cell = collectionView.cellForItemAtIndexPath(indexPath) as MasterCollectionViewCell
+                var cell = collectionView.cellForItemAtIndexPath(indexPath) as! MasterCollectionViewCell
                 cell.alpha = 0.5
             }else if(cards[i].visable == 1){
-                var cell = collectionView .cellForItemAtIndexPath(NSIndexPath(forRow: i, inSection: 0)) as MasterCollectionViewCell
+                var cell = collectionView .cellForItemAtIndexPath(NSIndexPath(forRow: i, inSection: 0)) as! MasterCollectionViewCell
                 cell.alpha = 1
             }else if(cards[i].visable == 0){
-                var cell = collectionView .cellForItemAtIndexPath(NSIndexPath(forRow: i, inSection: 0)) as MasterCollectionViewCell
+                var cell = collectionView .cellForItemAtIndexPath(NSIndexPath(forRow: i, inSection: 0)) as! MasterCollectionViewCell
                 cell.alpha = 0.5
             }
         }

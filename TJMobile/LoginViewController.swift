@@ -25,8 +25,8 @@ class LoginViewController: UIViewController {
     }
     override func viewWillAppear(animated: Bool) {
         if(NSUserDefaults.standardUserDefaults().valueForKey("login") != nil){
-            if((NSUserDefaults.standardUserDefaults().valueForKey("login") as NSString).isEqualToString("1")){
-                self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("master") as ViewController, animated: true)
+            if((NSUserDefaults.standardUserDefaults().valueForKey("login") as! NSString).isEqualToString("1")){
+                self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("master") as! ViewController, animated: true)
             }
         }
     }
@@ -40,7 +40,7 @@ class LoginViewController: UIViewController {
         
     }
     @IBAction func showMasterView(sender: AnyObject) {
-        self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("master") as ViewController, animated: true)
+        self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("master") as! ViewController, animated: true)
     }
     /*
     // MARK: - Navigation

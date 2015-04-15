@@ -31,15 +31,15 @@ class BusToViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         self.navigationController?.popViewControllerAnimated(true )
     }
     @IBAction func pushButTimeView(sender: AnyObject) {
-        self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("bustime") as BusTimeViewController , animated: true)
+        self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("bustime") as! BusTimeViewController , animated: true)
     }
-    func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
-    func tableView(tableView: UITableView!, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
     }
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -55,7 +55,7 @@ class BusToViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 46
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -81,7 +81,7 @@ class BusToViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     
-    func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
     {
         return true
     }
@@ -97,7 +97,7 @@ class BusToViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         }
         return indexPath
     }
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         if(indexPath.row >= selectNum[0]){
             selectNum[1]=indexPath.row+1

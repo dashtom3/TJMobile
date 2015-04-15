@@ -25,7 +25,7 @@ class MasterCollectionLayout: UICollectionViewLayout {
         for (var i = 0;i < cards.count;i++){
             cells[i] = self.layoutAttributesForItemAtIndexPath(NSIndexPath(forRow: i, inSection: 0))
         }
-        return cells;
+        return cells as [AnyObject];
     }
     override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
         return false

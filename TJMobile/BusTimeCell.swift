@@ -24,8 +24,8 @@ class BusTimeCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setStyle(time:NSString,way:NSString){
-        labelTime.text = time
-        labelWay.text = way
+        labelTime.text = time as String
+        labelWay.text = way as String
         if(way == "预约已满"){
             alphaView.alpha = 0.7
         }else{

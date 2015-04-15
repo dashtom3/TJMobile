@@ -29,7 +29,7 @@ class BusTicketCell: UITableViewCell {
             self.backgroundColor = UIColor(red: 255/255, green: 144/255, blue: 0/255, alpha: 1)
             var dateConverter = DateConverter()
             var tomorrowDate = NSDate(timeIntervalSinceNow: NSTimeInterval(86400))
-            var dayString = dateConverter.getyyyyFromDate(tomorrowDate)+"年"+dateConverter.getMMFromDate(tomorrowDate)+"月"+dateConverter.getddFromDate(tomorrowDate)+"日 "+dateConverter.getDayFromDate(tomorrowDate)
+            var dayString = (dateConverter.getyyyyFromDate(tomorrowDate) as String)+"年"+(dateConverter.getMMFromDate(tomorrowDate) as String)+"月"+(dateConverter.getddFromDate(tomorrowDate) as String)+"日 "+(dateConverter.getDayFromDate(tomorrowDate) as String)
             self.labelTime.text = dayString
             self.labelBusFrom.text = SCHOOL[selectNum[0]]
             self.labelBusTo.text = SCHOOL[selectNum[1]]
@@ -41,10 +41,10 @@ class BusTicketCell: UITableViewCell {
             self.labelBusFrom.text = "暂无车票信息"
         }else{
             self.backgroundColor = UIColor(red: 255/255, green: 144/255, blue: 0/255, alpha: 1)
-            self.labelTime.text = TICKET.tickets[num].time
-            self.labelBusTo.text = TICKET.tickets[num].busTo
+            self.labelTime.text = TICKET.tickets[num].time as String
+            self.labelBusTo.text = TICKET.tickets[num].busTo as String
             self.labelDAO.text = "到"
-            self.labelBusFrom.text = TICKET.tickets[num].busFrom
+            self.labelBusFrom.text = TICKET.tickets[num].busFrom as String
         }
     }
 }

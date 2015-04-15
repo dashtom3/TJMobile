@@ -29,7 +29,7 @@ class MasterCollectionViewCell: UICollectionViewCell {
         default:
             break;
         }
-        labelName.text = cards[num].labelName
-        imageName.image = UIImage(named: cards[num].picName)
+        labelName.text = cards[num].labelName as String
+        imageName.image = UIImage(named: cards[num].picName as String)
     }
 }

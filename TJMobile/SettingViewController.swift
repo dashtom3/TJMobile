@@ -28,13 +28,13 @@ class SettingViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBAction func backView(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.01
     }
-    func tableView(tableView: UITableView!, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
     }
     
@@ -55,15 +55,15 @@ class SettingViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     
-    func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
     {
         return true
     }
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         switch indexPath.row{
         case 0:
-            self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("about") as AboutViewController, animated: true)
+            self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("about") as! AboutViewController, animated: true)
             break
         case 1:
             sendMail()
@@ -80,7 +80,7 @@ class SettingViewController: UIViewController,UITableViewDelegate,UITableViewDat
         mailPicker.mailComposeDelegate = self
         mailPicker.setSubject("关于TJMobile意见与建议")
 
-        mailPicker.setToRecipients(NSArray(object: "yun@tongji.edu.cn"))
+        mailPicker.setToRecipients(NSArray(object: "yun@tongji.edu.cn") as [AnyObject])
         mailPicker.setMessageBody("尊敬的TJMobile开发团队：", isHTML: true)
         self.presentViewController(mailPicker, animated: true, completion: nil)
     }

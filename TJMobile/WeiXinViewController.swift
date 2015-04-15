@@ -29,25 +29,25 @@ class WeiXinViewController: UIViewController {
         //移动图书馆
         case 1:
             imageView.image = UIImage(named:"master_wx_2")
-            titleLabelName.text = NSString(format: "%@微信号", cards[num].labelName)
+            titleLabelName.text = NSString(format: "%@微信号", cards[num].labelName) as String
             label.text = "tongjilib"
             break
         //校友会
         case 2:
             imageView.image = UIImage(named:"master_wx_3")
-            titleLabelName.text = NSString(format: "%@微信号", cards[num].labelName)
+            titleLabelName.text = NSString(format: "%@微信号", cards[num].labelName) as String
             label.text = "TONGJI-xyh"
             break
         //青春同济
         case 5:
             imageView.image = UIImage(named:"master_wx_6")
-            titleLabelName.text = NSString(format: "%@微信号", cards[num].labelName)
+            titleLabelName.text = NSString(format: "%@微信号", cards[num].labelName) as String
             label.text = "qctjwx"
             break
         default:
             break
         }
-        titleLabel.text = cards[num].labelName
+        titleLabel.text = cards[num].labelName as String
     }
 
     @IBAction func backView(sender: AnyObject) {

@@ -28,13 +28,13 @@ class BusFromViewController: UIViewController,UITableViewDelegate,UITableViewDat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
-    func tableView(tableView: UITableView!, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
     }
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -50,7 +50,7 @@ class BusFromViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 46
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -70,7 +70,7 @@ class BusFromViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     
-    func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
     {
         return true
     }
@@ -80,7 +80,7 @@ class BusFromViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
         return indexPath
     }
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         selectNum[0]=indexPath.row
         for(var i = 0;i<5;i++){
@@ -100,7 +100,7 @@ class BusFromViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.navigationController?.popViewControllerAnimated(true)
     }
     @IBAction func pushBusToView(sender: AnyObject) {
-        self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("busto") as BusToViewController, animated: true)
+        self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("busto") as! BusToViewController, animated: true)
     }
 
 

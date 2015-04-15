@@ -9,13 +9,12 @@
 import UIKit
 
 class PageView: UIView {
-    let imageView: UIImageView!
+    var imageView: UIImageView!
     
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        imageView = UIImageView(frame: self.bounds)
+        imageView=UIImageView(frame: self.bounds)
         imageView.contentMode = UIViewContentMode.ScaleToFill
         self.addSubview(imageView)
         self.imageView.clipsToBounds = true

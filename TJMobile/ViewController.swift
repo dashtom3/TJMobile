@@ -25,16 +25,16 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
         LEFT_FRAME = viewFrame(firstFrame: CGRectMake(-self.view.frame.width+48,0,self.view.frame.width-48,self.view.frame.height), secondFrame: CGRectMake(0,0,self.view.frame.width-48,self.view.frame.height))
         RIGHT_FRAME = viewFrame(firstFrame: CGRectMake(0,0,self.view.frame.width,self.view.frame.height), secondFrame: CGRectMake(self.view.frame.width-48,0,self.view.frame.width,self.view.frame.height))
         
-        leftView = NSBundle.mainBundle().loadNibNamed("LeftView", owner: nil, options: nil)[0] as LeftView
+        leftView = NSBundle.mainBundle().loadNibNamed("LeftView", owner: nil, options: nil)[0] as! LeftView
         leftView.frame = LEFT_FRAME.secondFrame
         leftView.delegate = self
         //leftView.frame = CGRectMake(0,0,550,self.view.frame.height)
         self.view.addSubview(leftView)
-        masterView = NSBundle.mainBundle().loadNibNamed("MasterView", owner: nil, options: nil)[0] as MasterView
+        masterView = NSBundle.mainBundle().loadNibNamed("MasterView", owner: nil, options: nil)[0] as! MasterView
         masterView.frame = RIGHT_FRAME.firstFrame
         masterView.delegate = self
         self.view.addSubview(masterView)
-        newsView = NSBundle.mainBundle().loadNibNamed("NewsView", owner: nil, options: nil)[0] as NewsView
+        newsView = NSBundle.mainBundle().loadNibNamed("NewsView", owner: nil, options: nil)[0] as! NewsView
         newsView.frame = RIGHT_FRAME.firstFrame
         newsView.delegate = self
         self.view.addSubview(newsView)
@@ -88,43 +88,43 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
     func popUserViewController(){
         for viewController:AnyObject in (self.navigationController?.viewControllers)!{
             if(viewController.isKindOfClass(LoginViewController)){
-                self.navigationController?.popToViewController(viewController as UIViewController, animated: false)
+                self.navigationController?.popToViewController(viewController as! UIViewController, animated: false)
             }
         }
     }
     func presentSettingViewController(){
         //var nav = UINavigationController(rootViewController:self.storyboard?.instantiateViewControllerWithIdentifier("setting") as SettingViewController)
 
-        self.presentViewController(self.storyboard?.instantiateViewControllerWithIdentifier("nav")  as UIViewController, animated: true, completion: nil)
+        self.presentViewController(self.storyboard?.instantiateViewControllerWithIdentifier("nav")  as! UIViewController, animated: true, completion: nil)
     }
     func presentUserViewController() {
-        var userViewController = self.storyboard?.instantiateViewControllerWithIdentifier("user") as UserViewController
+        var userViewController = self.storyboard?.instantiateViewControllerWithIdentifier("user") as! UserViewController
         userViewController.delegate = self
         self.presentViewController(userViewController, animated: true, completion: nil)
         
     }
     func showLoginViewController(){
-    self.navigationController?.popToViewController(self.navigationController?.viewControllers[0] as UIViewController, animated: true)
+    self.navigationController?.popToViewController(self.navigationController?.viewControllers[0] as! UIViewController, animated: true)
     }
     func pushViewController(num: Int) {
         numSelected = num
         switch num{
         case 0:
             var userDefault = NSUserDefaults.standardUserDefaults()
-            if((userDefault.objectForKey("login") as NSString) == "0"){
+            if((userDefault.objectForKey("login") as! NSString) == "0"){
                 var alert = UIAlertView(title: "", message: "用户未登录，无法使用该功能", delegate: self, cancelButtonTitle: "确定")
                 alert.show()
                 self.refresh()
             }else{
-                self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("bus") as BusMainViewController, animated: true)
+                self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("bus") as! BusMainViewController, animated: true)
             }
             break
         case 1:
-            var actionSheet = UIActionSheet(title: cards[num].labelName, delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles: "主页", "微信","微博","掌上图书馆")
+            var actionSheet = UIActionSheet(title: cards[num].labelName as String, delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles: "主页", "微信","微博","掌上图书馆")
             actionSheet.showInView(self.view)
             break
         case 2:
-            var actionSheet = UIActionSheet(title: cards[num].labelName, delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles: "主页","微信", "微博")
+            var actionSheet = UIActionSheet(title: cards[num].labelName as String, delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles: "主页","微信", "微博")
             actionSheet.showInView(self.view)
             break
         case 3:
@@ -137,11 +137,11 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
             self.refresh()
             break
         case 4:
-            var actionSheet = UIActionSheet(title: cards[num].labelName, delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles: "主页", "微博")
+            var actionSheet = UIActionSheet(title: cards[num].labelName as String, delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles: "主页", "微博")
             actionSheet.showInView(self.view)
             break
         case 5:
-            var weiXinViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weixin") as WeiXinViewController
+            var weiXinViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weixin") as! WeiXinViewController
             self.presentViewController(weiXinViewController, animated: true, completion: nil)
             weiXinViewController.setStyle(5)
             self.refresh()
@@ -157,7 +157,7 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
                 var url = NSURL(string: "http://www.lib.tongji.edu.cn/site/tongji/index.html")
                 UIApplication.sharedApplication().openURL(url!)
             }else if(buttonIndex == 2){
-                var weiXinViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weixin") as WeiXinViewController
+                var weiXinViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weixin") as! WeiXinViewController
                 self.presentViewController(weiXinViewController, animated: true, completion: nil)
                 weiXinViewController.setStyle(1)
             }else if(buttonIndex == 3){
@@ -173,7 +173,7 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
                 var url = NSURL(string: "http://www.tongjiren.org/")
                 UIApplication.sharedApplication().openURL(url!)
             }else if(buttonIndex == 2){
-                var weiXinViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weixin") as WeiXinViewController
+                var weiXinViewController = self.storyboard?.instantiateViewControllerWithIdentifier("weixin") as! WeiXinViewController
                 self.presentViewController(weiXinViewController, animated: true, completion: nil)
                 weiXinViewController.setStyle(2)
             }else if(buttonIndex == 3){

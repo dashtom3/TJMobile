@@ -34,21 +34,21 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     override func viewWillAppear(animated: Bool) {
         var userDefaults = NSUserDefaults.standardUserDefaults()
-        var imageData:NSData? = userDefaults.valueForKey("userImage") as NSData?
-        var imageData2:NSData? = userDefaults.valueForKey("userBG") as NSData?
+        var imageData:NSData? = userDefaults.valueForKey("userImage") as! NSData?
+        var imageData2:NSData? = userDefaults.valueForKey("userBG") as! NSData?
         if(imageData?.length>0){
-            var image  = NSKeyedUnarchiver.unarchiveObjectWithData(imageData!) as UIImage
+            var image  = NSKeyedUnarchiver.unarchiveObjectWithData(imageData!) as! UIImage
             userImage.setBackgroundImage(image, forState: UIControlState.Normal)
         }else{
             userImage.setBackgroundImage(UIImage(named: "user_pic"), forState: UIControlState.Normal)
         }
         if(imageData2?.length>0){
-            var image  = NSKeyedUnarchiver.unarchiveObjectWithData(imageData2!) as UIImage
+            var image  = NSKeyedUnarchiver.unarchiveObjectWithData(imageData2!) as! UIImage
             userBg.setBackgroundImage(image, forState: UIControlState.Normal)
         }else{
             userBg.setBackgroundImage(UIImage(named: "user_bg"), forState: UIControlState.Normal)
         }
-        userName.text = userDefaults.valueForKey("userInfo") as NSString
+        userName.text = userDefaults.valueForKey("userInfo") as! NSString as String
         tableView.reloadData()
     }
     
@@ -79,7 +79,7 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         picker.delegate = self
         self.presentViewController(picker, animated: true, completion: nil)
     }
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         var userDefault = NSUserDefaults.standardUserDefaults()
         if(changePic == PIC.PERSON){
             userDefault.setObject(NSKeyedArchiver.archivedDataWithRootObject(image), forKey: "userImage")
@@ -99,13 +99,13 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         // Pass the selected object to the new view controller.
     }
     */
-    func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 3
     }
-    func tableView(tableView: UITableView!, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
     }
-    func tableView(tableView: UITableView!, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -122,7 +122,7 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         return 1
     }
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if(select == true && indexPath.section == 0 && indexPath.row == 1){
             return 102
         }
@@ -131,7 +131,7 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var cell: UITableViewCell = UITableViewCell()
-        var cell1 = tableView.dequeueReusableCellWithIdentifier("PickerCell") as UserPickerViewCell
+        var cell1 = tableView.dequeueReusableCellWithIdentifier("PickerCell") as! UserPickerViewCell
         //cell.backgroundColor = UIColor.clearColor()
         //cell.labelName.text = LEFT_LIST[indexPath.row]
         
@@ -140,7 +140,7 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 if(indexPath.row == 1){
                     cell1.delegate = self
                     if((NSUserDefaults.standardUserDefaults().valueForKey("userPlace")) != nil){
-                        cell1.setSelect(NSUserDefaults.standardUserDefaults().valueForKey("userPlace") as NSString)
+                        cell1.setSelect(NSUserDefaults.standardUserDefaults().valueForKey("userPlace") as! NSString)
                     }
                     return cell1
                 }
@@ -150,7 +150,7 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             if(indexPath.row == 0){
                 var userDefaults = NSUserDefaults.standardUserDefaults()
                 if((userDefaults.valueForKey("userPlace")) != nil){
-                    cell.detailTextLabel?.text = userDefaults.valueForKey("userPlace") as NSString
+                    cell.detailTextLabel?.text = userDefaults.valueForKey("userPlace") as! NSString as String
                 }else{
                     cell.detailTextLabel?.text = detailTitle[indexPath.row]
                 }
@@ -169,13 +169,12 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         return cell
     }
     
-    func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
     {
         return true
     }
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
-    {
+    func tableView(tableView: UITableView,didSelectRowAtIndexPath indexPath: NSIndexPath)    {
         if(indexPath.section == 0){
             if(indexPath.row == 0){
                 if(select == true){
