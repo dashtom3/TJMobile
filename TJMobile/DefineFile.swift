@@ -66,7 +66,7 @@ var cards = [GREEN_CARD,BLUE_CARD,GRAY_CARD,PINK_CARD,YELLOW_CARD,DARKGREEN_CARD
 
 let LEFT_LIST = ["同济应用","同济资讯"]
 var TICKET = ticket(num: 0, tickets: [], todayNum:0, todayNumInTickets:0)
-let SCHOOL = ["四平校区","嘉定校区","同济北苑","沪西校区","曹杨八村"]
+let SCHOOL = ["四平路校区","嘉定校区","同济北苑","沪西校区","曹杨八村"]
 var selectNum:[Int] = [-1,-1,0]
 //var time:[timeANDline] = []
 //用户 车票信息

@@ -30,6 +30,8 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         userImage.layer.masksToBounds = true
         userImage.layer.cornerRadius = 50
         tableView.registerNib(UINib(nibName: "UserPickerViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "PickerCell")
+        userImage.imageView?.contentMode = UIViewContentMode.ScaleAspectFill
+        userBg.imageView?.contentMode = UIViewContentMode.ScaleAspectFill
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
@@ -38,15 +40,16 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         var imageData2:NSData? = userDefaults.valueForKey("userBG") as! NSData?
         if(imageData?.length>0){
             var image  = NSKeyedUnarchiver.unarchiveObjectWithData(imageData!) as! UIImage
-            userImage.setBackgroundImage(image, forState: UIControlState.Normal)
+            //userImage.setBackgroundImage(image, forState: UIControlState.Normal)
+            userImage.setImage(image, forState: UIControlState.Normal)
         }else{
-            userImage.setBackgroundImage(UIImage(named: "user_pic"), forState: UIControlState.Normal)
+            userImage.setImage(UIImage(named: "user_pic"), forState: UIControlState.Normal)
         }
         if(imageData2?.length>0){
             var image  = NSKeyedUnarchiver.unarchiveObjectWithData(imageData2!) as! UIImage
-            userBg.setBackgroundImage(image, forState: UIControlState.Normal)
+            userBg.setImage(image, forState: UIControlState.Normal)
         }else{
-            userBg.setBackgroundImage(UIImage(named: "user_bg"), forState: UIControlState.Normal)
+            userBg.setImage(UIImage(named: "user_bg"), forState: UIControlState.Normal)
         }
         userName.text = userDefaults.valueForKey("userInfo") as! NSString as String
         tableView.reloadData()

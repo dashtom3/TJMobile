@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>352E6BD6-AB48-4978-BB92-58074C8E0ED6</string>
 	<key>IDESourceControlProjectName</key>
-	<string>TJMobile</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>FBA6E772AD8A4BCEDA4A0316F26BE43F2BD0CE94</key>
 		<string>https://github.com/dashtom3/TJMobile.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>TJMobile.xcodeproj</string>
+	<string>TJMobile.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>FBA6E772AD8A4BCEDA4A0316F26BE43F2BD0CE94</key>

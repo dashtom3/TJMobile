@@ -12,7 +12,7 @@ protocol PickerViewDelegate:NSObjectProtocol{
 
 }
 class UserPickerViewCell: UITableViewCell,UIPickerViewDataSource,UIPickerViewDelegate {
-    let names = ["四平校区","嘉定校区","沪西校区"]
+    let names = ["四平路校区","嘉定校区","沪西校区"]
     var delegate:PickerViewDelegate?
     
     @IBOutlet weak var pickerView: UIPickerView!

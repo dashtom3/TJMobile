@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="etY-9d-cVr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="etY-9d-cVr">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -245,16 +245,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="同济大学 版权所有" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGC-y8-VvJ">
-                                <rect key="frame" x="61" y="499" width="198" height="49"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="F2T-KK-6QZ"/>
-                                    <constraint firstAttribute="width" constant="198" id="zSo-ib-vIJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="移动同济" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gC6-C5-H6N">
                                 <rect key="frame" x="61" y="240" width="198" height="49"/>
                                 <constraints>
@@ -272,6 +262,26 @@
                                     <constraint firstAttribute="height" constant="170" id="rbx-s5-aAT"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="同济大学信息办 制作" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdO-4w-NlI">
+                                <rect key="frame" x="92" y="488" width="136" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="136" id="a34-oJ-Dj6"/>
+                                    <constraint firstAttribute="height" constant="36" id="sEg-jV-Jpz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="同济大学 版权所有" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGC-y8-VvJ">
+                                <rect key="frame" x="61" y="499" width="198" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="F2T-KK-6QZ"/>
+                                    <constraint firstAttribute="width" constant="198" id="zSo-ib-vIJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -285,6 +295,8 @@
                             <constraint firstItem="Afh-Si-vdV" firstAttribute="leading" secondItem="6w3-0Q-JG6" secondAttribute="leading" id="Mgw-UM-c6N"/>
                             <constraint firstItem="zQA-7W-ZF7" firstAttribute="top" secondItem="6w3-0Q-JG6" secondAttribute="topMargin" constant="269" id="OiQ-YN-vDa"/>
                             <constraint firstItem="z7i-u9-Vut" firstAttribute="top" secondItem="6w3-0Q-JG6" secondAttribute="topMargin" constant="72" id="TsV-Im-9Vd"/>
+                            <constraint firstAttribute="centerX" secondItem="ZdO-4w-NlI" secondAttribute="centerX" id="c7f-yr-nnb"/>
+                            <constraint firstAttribute="bottom" secondItem="ZdO-4w-NlI" secondAttribute="bottom" constant="44" id="fHh-om-ZHu"/>
                             <constraint firstItem="Afh-Si-vdV" firstAttribute="top" secondItem="6w3-0Q-JG6" secondAttribute="top" id="jCZ-AY-EDy"/>
                             <constraint firstAttribute="centerX" secondItem="3O3-eV-ya9" secondAttribute="centerX" id="mNs-4d-3O1"/>
                             <constraint firstAttribute="centerX" secondItem="z7i-u9-Vut" secondAttribute="centerX" id="uNf-oN-pvn"/>
@@ -442,7 +454,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzx-Gt-xol">
-                                <rect key="frame" x="252" y="24" width="40" height="40"/>
+                                <rect key="frame" x="268" y="24" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="5bN-V2-uE1"/>
                                     <constraint firstAttribute="height" constant="40" id="mAc-X0-smv"/>
@@ -473,7 +485,7 @@
                         <constraints>
                             <constraint firstItem="aIs-S3-KRF" firstAttribute="top" secondItem="pnY-ch-63p" secondAttribute="topMargin" constant="78" id="46E-08-c43"/>
                             <constraint firstItem="1Cw-kw-8oV" firstAttribute="leading" secondItem="pnY-ch-63p" secondAttribute="leading" id="5T9-eg-FSz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="yzx-Gt-xol" secondAttribute="trailing" constant="12" id="6nC-No-KgV"/>
+                            <constraint firstAttribute="trailing" secondItem="yzx-Gt-xol" secondAttribute="trailing" constant="12" id="6nC-No-KgV"/>
                             <constraint firstItem="qJO-qi-XUV" firstAttribute="leading" secondItem="pnY-ch-63p" secondAttribute="leading" id="7HW-nA-CrP"/>
                             <constraint firstAttribute="centerX" secondItem="aIs-S3-KRF" secondAttribute="centerX" id="DjC-Cg-pt2"/>
                             <constraint firstAttribute="trailing" secondItem="qJO-qi-XUV" secondAttribute="trailing" id="M7s-3C-LQo"/>
