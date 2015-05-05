@@ -27,9 +27,19 @@ class LeftView: UIView,UITableViewDelegate,UITableViewDataSource {
     */
     func refresh(){
         var userDefaults = NSUserDefaults.standardUserDefaults()
-        var imageData:NSData? = userDefaults.valueForKey("userImage") as! NSData?
-        if(imageData?.length>0){
-            userImage.image = (NSKeyedUnarchiver.unarchiveObjectWithData(imageData!) as! UIImage)
+        var username = userDefaults.valueForKey("username") as? String
+        var login = userDefaults.valueForKey("login") as? String
+        if(login != nil){
+            if(login=="1"){
+                if((username) != nil){
+                    var imageData:NSData? = userDefaults.valueForKey(username!+"userImage") as! NSData?
+                    if(imageData?.length>0){
+                        userImage.image = (NSKeyedUnarchiver.unarchiveObjectWithData(imageData!) as! UIImage)
+                    }
+                }
+            }else{
+                userImage.image = UIImage(named: "user_pic")
+            }
         }
     }
     override func awakeFromNib() {

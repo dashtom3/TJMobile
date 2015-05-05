@@ -111,12 +111,18 @@ class ViewController: UIViewController,MasterViewDelegate,LeftViewDelegate,NewsV
         switch num{
         case 0:
             var userDefault = NSUserDefaults.standardUserDefaults()
-            if((userDefault.objectForKey("login") as! NSString) == "0"){
+            if((userDefault.objectForKey("login")) != nil){
+                if((userDefault.objectForKey("login") as! NSString) == "0"){
+                    var alert = UIAlertView(title: "", message: "用户未登录，无法使用该功能", delegate: self, cancelButtonTitle: "确定")
+                    alert.show()
+                    self.refresh()
+                }else{
+                    self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("bus") as! BusMainViewController, animated: true)
+                }
+            }else{
                 var alert = UIAlertView(title: "", message: "用户未登录，无法使用该功能", delegate: self, cancelButtonTitle: "确定")
                 alert.show()
                 self.refresh()
-            }else{
-                self.navigationController?.pushViewController(self.storyboard?.instantiateViewControllerWithIdentifier("bus") as! BusMainViewController, animated: true)
             }
             break
         case 1:

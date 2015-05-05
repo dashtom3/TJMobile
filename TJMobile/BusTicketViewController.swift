@@ -15,6 +15,7 @@ class BusTicketViewController: UIViewController,HttpDelegate {
     @IBOutlet weak var labelDay: UILabel!
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var okBtn: UIButton!
+    @IBOutlet weak var qrCode: UIImageView!
     var waitingView = WaitingAnimation()
     var httpRequest = HttpRequest()
     var styleNum = -1;
@@ -165,6 +166,7 @@ class BusTicketViewController: UIViewController,HttpDelegate {
     }
     func setStyle(num:Int){
         var dateConverter = DateConverter()
+        var ticket:String
         if(num == -1){
             labelLine.attributedText = stringChange(SCHOOL[selectNum[0]], busTo: SCHOOL[selectNum[1]])
             labelTime.text = (routeLine.objectAtIndex(selectNum[2]) as! NSDictionary).valueForKey("time") as! NSString as String
@@ -174,10 +176,7 @@ class BusTicketViewController: UIViewController,HttpDelegate {
             labelDay.text = dayString
             okBtn.setTitle("确认预约", forState:UIControlState.Normal)
             cancelBtn.alpha = 1.0
-            dateConverter.getDayFromDate(NSDate())
-            dateConverter.getDayFromDate(NSDate(timeIntervalSinceNow: NSTimeInterval(-86400)))
-            dateConverter.getDayFromDate(NSDate(timeIntervalSinceNow: NSTimeInterval(172800)))
-            dateConverter.getDayFromDate(NSDate(timeIntervalSinceNow: NSTimeInterval(-172800)))
+            ticket = "  时间:"+labelDay.text!+" "+labelTime.text!+" 车票信息:"+SCHOOL[selectNum[0]]+"到"+SCHOOL[selectNum[1]]
         }else{
             labelLine.attributedText = stringChange(TICKET.tickets[num].busFrom,busTo:TICKET.tickets[num].busTo)
             var dateBooked = dateConverter.getDateFromNSString(TICKET.tickets[num].time)
@@ -185,7 +184,11 @@ class BusTicketViewController: UIViewController,HttpDelegate {
             labelDay.text = (dateConverter.getMMFromDate(dateBooked) as String)+"月"+(dateConverter.getddFromDate(dateBooked) as String)+"日 "+(dateConverter.getDayFromDate(dateBooked) as String)
             okBtn.setTitle("取消凭证", forState:UIControlState.Normal)
             cancelBtn.alpha = 0.0
+            ticket = "  时间:"+labelDay.text!+" "+labelTime.text!+" 车票信息:"+(TICKET.tickets[num].busFrom as String)+"到"+(TICKET.tickets[num].busTo as String)
         }
+        var strVal = "学号:"+(NSUserDefaults.standardUserDefaults().valueForKey("username") as! String)+" 姓名:"+(NSUserDefaults.standardUserDefaults().valueForKey("userInfo") as! String)
+        
+        qrCode.image = UIImage(CIImage:UIImage.createQRCodeImage(strVal+ticket))
     }
     func stringChange(busFrom:NSString,busTo:NSString)->NSMutableAttributedString{
         var str:NSMutableAttributedString = NSMutableAttributedString(string: "从"+(busFrom as String)+"到"+(busTo as String))

@@ -10,6 +10,7 @@
 		122A15EB1A495D8C00519645 /* BusTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122A15E91A495D8C00519645 /* BusTimeCell.swift */; };
 		122A15EC1A495D8C00519645 /* BusTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 122A15EA1A495D8C00519645 /* BusTimeCell.xib */; };
 		122A15EE1A498EAB00519645 /* BusTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122A15ED1A498EAB00519645 /* BusTicketViewController.swift */; };
+		122AA0411AF7546D000C0E42 /* UIImage+QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 122AA0401AF7546D000C0E42 /* UIImage+QRCode.m */; };
 		12322C321A46F57D00D26C49 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12322C311A46F57D00D26C49 /* LoginViewController.swift */; };
 		126B5B0D1A909A5E00D91229 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126B5B0C1A909A5E00D91229 /* LoginView.swift */; };
 		1274416A1A42DD0C004EC3AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127441691A42DD0C004EC3AE /* AppDelegate.swift */; };
@@ -67,9 +68,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10B23463122463116BABBD66 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		122A15E91A495D8C00519645 /* BusTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusTimeCell.swift; sourceTree = "<group>"; };
 		122A15EA1A495D8C00519645 /* BusTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusTimeCell.xib; sourceTree = "<group>"; };
 		122A15ED1A498EAB00519645 /* BusTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusTicketViewController.swift; sourceTree = "<group>"; };
+		122AA03E1AF7546C000C0E42 /* TJMobile-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TJMobile-Bridging-Header.h"; sourceTree = "<group>"; };
+		122AA03F1AF7546D000C0E42 /* UIImage+QRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+QRCode.h"; sourceTree = SOURCE_ROOT; };
+		122AA0401AF7546D000C0E42 /* UIImage+QRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QRCode.m"; sourceTree = SOURCE_ROOT; };
 		12322C311A46F57D00D26C49 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		126B5B0C1A909A5E00D91229 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		127441641A42DD0C004EC3AE /* TJMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TJMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +123,7 @@
 		12D71B741A974A77004D79D9 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		12E468BB1AC145DE00E10CB0 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		12FA2D561A47EF9E00276F31 /* BusMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusMainViewController.swift; sourceTree = "<group>"; };
+		6BEA4AFBDC3F9A57B0CF6A0D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +150,8 @@
 				127441661A42DD0C004EC3AE /* TJMobile */,
 				1274417F1A42DD0C004EC3AE /* TJMobileTests */,
 				127441651A42DD0C004EC3AE /* Products */,
+				A6FECB0C44BD1E095EE576DB /* Pods */,
+				DD6F02606221F36E4DF74260 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -277,8 +285,11 @@
 		12CC91AC1A48286B0033B359 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				122AA03F1AF7546D000C0E42 /* UIImage+QRCode.h */,
+				122AA0401AF7546D000C0E42 /* UIImage+QRCode.m */,
 				127441A01A42EACC004EC3AE /* DefineFile.swift */,
 				12CEB8AE1A9F779900BCC63A /* DateConverter.swift */,
+				122AA03E1AF7546C000C0E42 /* TJMobile-Bridging-Header.h */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -289,6 +300,22 @@
 				127441A21A42ED95004EC3AE /* MasterCollectionLayout.swift */,
 			);
 			name = "collection view layout";
+			sourceTree = "<group>";
+		};
+		A6FECB0C44BD1E095EE576DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6BEA4AFBDC3F9A57B0CF6A0D /* Pods.debug.xcconfig */,
+				10B23463122463116BABBD66 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DD6F02606221F36E4DF74260 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,6 +448,7 @@
 				1274416D1A42DD0C004EC3AE /* TJMobile.xcdatamodeld in Sources */,
 				12CEB8AF1A9F779900BCC63A /* DateConverter.swift in Sources */,
 				127441A31A42ED95004EC3AE /* MasterCollectionLayout.swift in Sources */,
+				122AA0411AF7546D000C0E42 /* UIImage+QRCode.m in Sources */,
 				12BCAC331AC98EA500D77B62 /* PageView.swift in Sources */,
 				12CF7B5F1A7BAB6A008009A2 /* LoginUserViewController.swift in Sources */,
 				1274419B1A42E60B004EC3AE /* MasterView.swift in Sources */,
@@ -510,7 +538,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -547,7 +575,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -559,12 +587,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods",
+				);
 				INFOPLIST_FILE = TJMobile/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TJMobile/TJMobile-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -572,12 +608,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods",
+				);
 				INFOPLIST_FILE = TJMobile/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TJMobile/TJMobile-Bridging-Header.h";
 			};
 			name = Release;
 		};

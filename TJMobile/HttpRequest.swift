@@ -73,6 +73,9 @@ class HttpRequest: NSObject,NSURLConnectionDelegate,NSURLConnectionDataDelegate{
         println("http发送请求:"+url)
         getRequest(url)
     }
+    func ticketUrl(username:NSString,curtime:NSString,history:NSString)->NSString{
+        return basicUrl+"TicketServlet?username="+(username as String)+"&curtime="+(curtime as String)+"&history="+(history as String)
+    }
     //退票
     func servletCancelTicket(ticket_id:NSString,bus_id:NSString){
         var url = basicUrl+"CancelTicketServlet?ticket_id="+(ticket_id as String)+"&bus_id="+(bus_id as String)

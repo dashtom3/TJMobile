@@ -66,9 +66,17 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         var nsDictionary:NSDictionary
                         for nsDictionary in userInfo{
                             for(var i = 0; i < SCHOOL.count;i++){
-                                if(SCHOOL[i]==nsDictionary.valueForKey("start") as? NSString){
+                                var name1 = nsDictionary.valueForKey("start") as? NSString
+                                if(nsDictionary.valueForKey("start") as? NSString=="四平校区"){
+                                    name1 = "四平路校区"
+                                }
+                                if(SCHOOL[i]==name1){
                                     for(var j = 0; j < SCHOOL.count;j++){
-                                        if(SCHOOL[j]==nsDictionary.valueForKey("end") as? NSString){
+                                        var name2 = nsDictionary.valueForKey("end") as? NSString
+                                        if(nsDictionary.valueForKey("end") as? NSString=="四平校区"){
+                                            name2 = "四平路校区"
+                                        }
+                                        if(SCHOOL[j]==name2){
                                             routeMatrix[i][j] = nsDictionary.valueForKey("route_id") as! Int
                                             routeMatrix[i][i] = 1
                                         }

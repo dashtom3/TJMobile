@@ -17,7 +17,9 @@ protocol popUserViewDelegate:NSObjectProtocol{
 class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,PickerViewDelegate {
     //var title = ["常住校区","寝室","用户头像","封面","退出登录"]
     var delegate:popUserViewDelegate?
+    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var userName: UILabel!
+    var username:String!
     let userTitle = [["常住校区"],["用户头像","封面"],["退出登录"]]
     let detailTitle = ["四平路校区"]
     var changePic = PIC.PERSON
@@ -32,12 +34,18 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         tableView.registerNib(UINib(nibName: "UserPickerViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "PickerCell")
         userImage.imageView?.contentMode = UIViewContentMode.ScaleAspectFill
         userBg.imageView?.contentMode = UIViewContentMode.ScaleAspectFill
+        button.setTitleShadowColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        button.titleLabel?.shadowOffset = CGSizeMake(0, 1.0)
+        userName.shadowColor = UIColor.blackColor()
+        userName.shadowOffset = CGSizeMake(0, 1.0)
+        username = NSUserDefaults.standardUserDefaults().objectForKey("username") as! String
+
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
         var userDefaults = NSUserDefaults.standardUserDefaults()
-        var imageData:NSData? = userDefaults.valueForKey("userImage") as! NSData?
-        var imageData2:NSData? = userDefaults.valueForKey("userBG") as! NSData?
+                var imageData:NSData? = userDefaults.valueForKey(username+"userImage") as! NSData?
+        var imageData2:NSData? = userDefaults.valueForKey(username+"userBG") as! NSData?
         if(imageData?.length>0){
             var image  = NSKeyedUnarchiver.unarchiveObjectWithData(imageData!) as! UIImage
             //userImage.setBackgroundImage(image, forState: UIControlState.Normal)
@@ -85,10 +93,10 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         var userDefault = NSUserDefaults.standardUserDefaults()
         if(changePic == PIC.PERSON){
-            userDefault.setObject(NSKeyedArchiver.archivedDataWithRootObject(image), forKey: "userImage")
+            userDefault.setObject(NSKeyedArchiver.archivedDataWithRootObject(image), forKey: username+"userImage")
             userImage.imageView?.image = image
         }else{
-            userDefault.setObject(NSKeyedArchiver.archivedDataWithRootObject(image), forKey: "userBG")
+            userDefault.setObject(NSKeyedArchiver.archivedDataWithRootObject(image), forKey: username+"userBG")
             userBg.imageView?.image = image
         }
         self.dismissViewControllerAnimated(true, completion: nil)

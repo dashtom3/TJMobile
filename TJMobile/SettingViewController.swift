@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 class SettingViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,MFMailComposeViewControllerDelegate{
-    let names = ["关于TJMobile","联系我们","评分"]
+    let names = ["关于 TJMobile","联系我们","评分"]
     
     @IBOutlet weak var tableView: UITableView!
     
