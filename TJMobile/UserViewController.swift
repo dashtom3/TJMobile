@@ -23,8 +23,9 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     let userTitle = [["常住校区"],["用户头像","封面"],["退出登录"]]
     let detailTitle = ["四平路校区"]
     var changePic = PIC.PERSON
-    @IBOutlet weak var userImage: UIButton!
-    @IBOutlet weak var userBg: UIButton!
+    
+    @IBOutlet weak var userBg: UIImageView!
+    @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     var select = false
     override func viewDidLoad() {
@@ -32,12 +33,11 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         userImage.layer.masksToBounds = true
         userImage.layer.cornerRadius = 50
         tableView.registerNib(UINib(nibName: "UserPickerViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "PickerCell")
-        userImage.imageView?.contentMode = UIViewContentMode.ScaleAspectFill
-        userBg.imageView?.contentMode = UIViewContentMode.ScaleAspectFill
-        button.setTitleShadowColor(UIColor.blackColor(), forState: UIControlState.Normal)
-        button.titleLabel?.shadowOffset = CGSizeMake(0, 1.0)
-        userName.shadowColor = UIColor.blackColor()
-        userName.shadowOffset = CGSizeMake(0, 1.0)
+        
+        button.setTitleShadowColor(UIColor.grayColor(), forState: UIControlState.Normal)
+        button.titleLabel?.shadowOffset = CGSizeMake(0, 0.5)
+        userName.shadowColor = UIColor.grayColor()
+        userName.shadowOffset = CGSizeMake(0, 0.5)
         username = NSUserDefaults.standardUserDefaults().objectForKey("username") as! String
 
         // Do any additional setup after loading the view.
@@ -49,15 +49,15 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         if(imageData?.length>0){
             var image  = NSKeyedUnarchiver.unarchiveObjectWithData(imageData!) as! UIImage
             //userImage.setBackgroundImage(image, forState: UIControlState.Normal)
-            userImage.setImage(image, forState: UIControlState.Normal)
+            userImage.image = image
         }else{
-            userImage.setImage(UIImage(named: "user_pic"), forState: UIControlState.Normal)
+            userImage.image = UIImage(named: "user_pic")
         }
         if(imageData2?.length>0){
             var image  = NSKeyedUnarchiver.unarchiveObjectWithData(imageData2!) as! UIImage
-            userBg.setImage(image, forState: UIControlState.Normal)
+            userBg.image = image
         }else{
-            userBg.setImage(UIImage(named: "user_bg"), forState: UIControlState.Normal)
+            userBg.image = UIImage(named: "user_bg")
         }
         userName.text = userDefaults.valueForKey("userInfo") as! NSString as String
         tableView.reloadData()
@@ -70,14 +70,6 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     @IBAction func closeLogin(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    @IBAction func changeUserBG(sender: AnyObject) {
-        changePic = PIC.BACKGROUND
-        self.changePersonPic()
-    }
-    @IBAction func changePic(sender: AnyObject) {
-        changePic = PIC.PERSON
-        self.changePersonPic()
     }
     func pickerOK(name:NSString){
         var userDefault = NSUserDefaults.standardUserDefaults()
@@ -94,10 +86,10 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         var userDefault = NSUserDefaults.standardUserDefaults()
         if(changePic == PIC.PERSON){
             userDefault.setObject(NSKeyedArchiver.archivedDataWithRootObject(image), forKey: username+"userImage")
-            userImage.imageView?.image = image
+            userImage.image = image
         }else{
             userDefault.setObject(NSKeyedArchiver.archivedDataWithRootObject(image), forKey: username+"userBG")
-            userBg.imageView?.image = image
+            userBg.image = image
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
