@@ -169,7 +169,10 @@ class BusTicketViewController: UIViewController,HttpDelegate {
         var ticket:String
         if(num == -1){
             labelLine.attributedText = stringChange(SCHOOL[selectNum[0]], busTo: SCHOOL[selectNum[1]])
-            labelTime.text = (routeLine.objectAtIndex(selectNum[2]) as! NSDictionary).valueForKey("time") as! NSString as String
+             var dateConverter = DateConverter()
+            var timeStr = (routeLine.objectAtIndex(selectNum[2]) as! NSDictionary).valueForKey("time") as! NSString
+            
+            labelTime.text = dateConverter.getHHmmFromDate(dateConverter.getHHmmFromNSString(timeStr.substringToIndex(4) as NSString)) as String
             var tomorrowDate = NSDate(timeIntervalSinceNow: NSTimeInterval(86400))
             
             var dayString = (dateConverter.getMMFromDate(tomorrowDate) as String)+"月"+(dateConverter.getddFromDate(tomorrowDate) as String)+"日 "+(dateConverter.getDayFromDate(tomorrowDate) as String)

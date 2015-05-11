@@ -14,24 +14,34 @@ class DateConverter: NSObject {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         return dateFormatter.dateFromString(timeString as String)!
     }
+    func getHHmmFromNSString(timeString:NSString)->NSDate{
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        return dateFormatter.dateFromString(timeString as String)!
+    }
+    func getDateStrFromDate(timeDate:NSDate)->NSString{
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-M-d H:mm"
+        return dateFormatter.stringFromDate(timeDate)
+    }
     func getHHFromDate(timeDate:NSDate)->NSString{
         var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "HH"
+        dateFormatter.dateFormat = "H"
         return dateFormatter.stringFromDate(timeDate)
     }
     func getMMFromDate(timeDate:NSDate)->NSString{
         var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MM"
+        dateFormatter.dateFormat = "M"
         return dateFormatter.stringFromDate(timeDate)
     }
     func getddFromDate(timeDate:NSDate)->NSString{
         var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd"
+        dateFormatter.dateFormat = "d"
         return dateFormatter.stringFromDate(timeDate)
     }
     func getHHmmFromDate(timeDate:NSDate)->NSString{
         var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.dateFormat = "H:mm"
         return dateFormatter.stringFromDate(timeDate)
     }
     func getyyyyFromDate(timeDate:NSDate)->NSString{

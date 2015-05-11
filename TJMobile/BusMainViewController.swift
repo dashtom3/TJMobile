@@ -85,7 +85,7 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
                             }
                         }
                         waitingView.waitingLabelKindNum = 3;
-                        httpRequest.servletGetTicket(NSUserDefaults.standardUserDefaults().objectForKey("username")as! NSString, curtime: NSString(format: "%d", Int(NSTimeIntervalSince1970)) , history: "0")
+                    httpRequest.servletGetTicket(NSUserDefaults.standardUserDefaults().objectForKey("username")as! NSString, curtime: NSString(format: "%d", Int(NSTimeIntervalSince1970)) , history: "0")
                     }
                     }else{
                         var error:NSError?
@@ -95,8 +95,19 @@ class BusMainViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         TICKET.todayNum = 0;
                         for(var i = 0;i<tickets.count;i++){
                             var ticket:NSDictionary = tickets[i] as! NSDictionary
-                            var ticket2 = ticketInfo(time: ticket.valueForKey("ticket_time") as! NSString, busFrom: ticket.valueForKey("start") as! NSString, busTo: ticket.valueForKey("end") as! NSString, bus_id: ticket.valueForKey("bus_id") as! NSString, ticket_id: NSString(format: "%d",ticket.valueForKey("id") as! Int))
+                            var from = ticket.valueForKey("start") as! NSString
+                            var to = ticket.valueForKey("end") as! NSString
+                            if(from=="四平校区"){
+                                from = "四平路校区"
+                            }
+                            if(to=="四平校区"){
+                                to = "四平路校区"
+                            }
                             var dateConverter = DateConverter()
+                            var timeDate = dateConverter.getDateStrFromDate(dateConverter.getDateFromNSString(ticket.valueForKey("ticket_time") as! NSString))
+                            
+                            var ticket2 = ticketInfo(time: timeDate, busFrom: from, busTo: to, bus_id: ticket.valueForKey("bus_id") as! NSString, ticket_id: NSString(format: "%d",ticket.valueForKey("id") as! Int))
+                            
                             var dateBooked = dateConverter.getDateFromNSString(ticket2.time)
                             var day2 = dateConverter.getddFromDate(dateBooked)
                             var day = dateConverter.getddFromDate(NSDate(timeIntervalSinceNow: 3600*24))
