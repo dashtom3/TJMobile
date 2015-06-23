@@ -89,7 +89,7 @@ class UserViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             userImage.image = image
         }else{
             userDefault.setObject(NSKeyedArchiver.archivedDataWithRootObject(image), forKey: username+"userBG")
-            userBg.image = image
+            userBg.image = image	
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }

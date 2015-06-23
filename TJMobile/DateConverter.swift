@@ -12,6 +12,10 @@ class DateConverter: NSObject {
     func getDateFromNSString(timeString:NSString)->NSDate{
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        if((dateFormatter.dateFromString(timeString as String)) == nil){
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm-ss:ss"
+            return dateFormatter.dateFromString(timeString as String)!
+        }
         return dateFormatter.dateFromString(timeString as String)!
     }
     func getHHmmFromNSString(timeString:NSString)->NSDate{

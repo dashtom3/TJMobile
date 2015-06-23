@@ -82,13 +82,13 @@ class BusTimeViewController: UIViewController,UITableViewDelegate,UITableViewDat
             cell1.setStyle(-1)
             return cell1
         }else{
+            var dateConverter = DateConverter()
+            var timeStr = (routeLine.objectAtIndex(indexPath.row-1) as! NSDictionary).valueForKey("time") as! NSString
+            var timeDate = dateConverter.getHHmmFromDate(dateConverter.getHHmmFromNSString(timeStr.substringToIndex(4) as NSString))
             if((routeLine.objectAtIndex(indexPath.row-1) as! NSDictionary).valueForKey("rest")?.intValue==0){
-                var dateConverter = DateConverter()
-                var timeStr = (routeLine.objectAtIndex(indexPath.row-1) as! NSDictionary).valueForKey("time") as! NSString
-                var timeDate = dateConverter.getHHmmFromDate(dateConverter.getHHmmFromNSString(timeStr.substringToIndex(4) as NSString))
                 cell.setStyle(timeDate, way: "预约已满")
             }else{
-            cell.setStyle((routeLine.objectAtIndex(indexPath.row-1) as! NSDictionary).valueForKey("time") as! NSString, way: (routeLine.objectAtIndex(indexPath.row-1) as! NSDictionary).valueForKey("line") as! NSString)
+                cell.setStyle(timeDate, way: (routeLine.objectAtIndex(indexPath.row-1) as! NSDictionary).valueForKey("line") as! NSString)
             }
         }
         return cell
