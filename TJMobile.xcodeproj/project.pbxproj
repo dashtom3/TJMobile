@@ -12,6 +12,7 @@
 		122A15EE1A498EAB00519645 /* BusTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122A15ED1A498EAB00519645 /* BusTicketViewController.swift */; };
 		122AA0411AF7546D000C0E42 /* UIImage+QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 122AA0401AF7546D000C0E42 /* UIImage+QRCode.m */; };
 		12322C321A46F57D00D26C49 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12322C311A46F57D00D26C49 /* LoginViewController.swift */; };
+		125A8B8F1B79CB6600C85E5C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 125A8B8E1B79CB6600C85E5C /* Images.xcassets */; };
 		126B5B0D1A909A5E00D91229 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126B5B0C1A909A5E00D91229 /* LoginView.swift */; };
 		1274416A1A42DD0C004EC3AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127441691A42DD0C004EC3AE /* AppDelegate.swift */; };
 		1274416D1A42DD0C004EC3AE /* TJMobile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1274416B1A42DD0C004EC3AE /* TJMobile.xcdatamodeld */; };
@@ -50,11 +51,12 @@
 		12CF92C81AC2A7CC00C01E46 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF92C71AC2A7CC00C01E46 /* AboutViewController.swift */; };
 		12CF92CA1AC2CC4600C01E46 /* WeiXinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CF92C91AC2CC4600C01E46 /* WeiXinViewController.swift */; };
 		12D351C91A474212003465FC /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D351C81A474212003465FC /* UserViewController.swift */; };
-		12D41B821AA97ED200F56CD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D41B811AA97ED200F56CD2 /* Images.xcassets */; };
 		12D71B721A970ED3004D79D9 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D71B711A970ED3004D79D9 /* LoginView.xib */; };
 		12D71B751A974A77004D79D9 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D71B741A974A77004D79D9 /* HttpRequest.swift */; };
 		12E468BC1AC145DE00E10CB0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E468BB1AC145DE00E10CB0 /* SettingViewController.swift */; };
 		12FA2D571A47EF9E00276F31 /* BusMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FA2D561A47EF9E00276F31 /* BusMainViewController.swift */; };
+		12FC39D51B774A290037338D /* AdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FC39D31B774A290037338D /* AdvertisementViewController.swift */; };
+		12FC39D61B774A290037338D /* AdvertisementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12FC39D41B774A290037338D /* AdvertisementViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,7 @@
 		122AA03F1AF7546D000C0E42 /* UIImage+QRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+QRCode.h"; sourceTree = SOURCE_ROOT; };
 		122AA0401AF7546D000C0E42 /* UIImage+QRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QRCode.m"; sourceTree = SOURCE_ROOT; };
 		12322C311A46F57D00D26C49 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		125A8B8E1B79CB6600C85E5C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = TJMobile/Images.xcassets; sourceTree = "<group>"; };
 		126B5B0C1A909A5E00D91229 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		127441641A42DD0C004EC3AE /* TJMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TJMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		127441681A42DD0C004EC3AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,11 +121,12 @@
 		12CF92C71AC2A7CC00C01E46 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		12CF92C91AC2CC4600C01E46 /* WeiXinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiXinViewController.swift; sourceTree = "<group>"; };
 		12D351C81A474212003465FC /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
-		12D41B811AA97ED200F56CD2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		12D71B711A970ED3004D79D9 /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		12D71B741A974A77004D79D9 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		12E468BB1AC145DE00E10CB0 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		12FA2D561A47EF9E00276F31 /* BusMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusMainViewController.swift; sourceTree = "<group>"; };
+		12FC39D31B774A290037338D /* AdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewController.swift; sourceTree = "<group>"; };
+		12FC39D41B774A290037338D /* AdvertisementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvertisementViewController.xib; sourceTree = "<group>"; };
 		6BEA4AFBDC3F9A57B0CF6A0D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +151,7 @@
 		1274415B1A42DD0B004EC3AE = {
 			isa = PBXGroup;
 			children = (
+				125A8B8E1B79CB6600C85E5C /* Images.xcassets */,
 				127441661A42DD0C004EC3AE /* TJMobile */,
 				1274417F1A42DD0C004EC3AE /* TJMobileTests */,
 				127441651A42DD0C004EC3AE /* Products */,
@@ -176,7 +181,6 @@
 				12CC91A81A4828230033B359 /* cell */,
 				127441691A42DD0C004EC3AE /* AppDelegate.swift */,
 				127441701A42DD0C004EC3AE /* Main.storyboard */,
-				12D41B811AA97ED200F56CD2 /* Images.xcassets */,
 				127441751A42DD0C004EC3AE /* LaunchScreen.xib */,
 				1274416B1A42DD0C004EC3AE /* TJMobile.xcdatamodeld */,
 				127441671A42DD0C004EC3AE /* Supporting Files */,
@@ -278,6 +282,8 @@
 				12CF92C71AC2A7CC00C01E46 /* AboutViewController.swift */,
 				12CF92C91AC2CC4600C01E46 /* WeiXinViewController.swift */,
 				12BCAC361AC98FB200D77B62 /* BusPageViewController.swift */,
+				12FC39D31B774A290037338D /* AdvertisementViewController.swift */,
+				12FC39D41B774A290037338D /* AdvertisementViewController.xib */,
 			);
 			name = "view controller";
 			sourceTree = "<group>";
@@ -404,8 +410,9 @@
 				12C09CD51A9C60AF00460CBD /* WaitingAnimation.xib in Resources */,
 				12CA45421AC5462E0032AC3E /* UserPickerViewCell.xib in Resources */,
 				127441721A42DD0C004EC3AE /* Main.storyboard in Resources */,
+				12FC39D61B774A290037338D /* AdvertisementViewController.xib in Resources */,
+				125A8B8F1B79CB6600C85E5C /* Images.xcassets in Resources */,
 				127441991A42E5A5004EC3AE /* MasterView.xib in Resources */,
-				12D41B821AA97ED200F56CD2 /* Images.xcassets in Resources */,
 				122A15EC1A495D8C00519645 /* BusTimeCell.xib in Resources */,
 				127441A71A43003F004EC3AE /* LeftViewTableCell.xib in Resources */,
 				12BCAC351AC98F0200D77B62 /* PageView.xib in Resources */,
@@ -432,6 +439,7 @@
 			files = (
 				12FA2D571A47EF9E00276F31 /* BusMainViewController.swift in Sources */,
 				127441A61A43003F004EC3AE /* LeftViewTableCell.swift in Sources */,
+				12FC39D51B774A290037338D /* AdvertisementViewController.swift in Sources */,
 				12C09CD31A9C609700460CBD /* WaitingAnimation.swift in Sources */,
 				1274419E1A42E7EB004EC3AE /* MasterCollectionViewCell.swift in Sources */,
 				12CA45411AC5462E0032AC3E /* UserPickerViewCell.swift in Sources */,

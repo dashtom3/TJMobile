@@ -17,6 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.backgroundColor = UIColor.whiteColor()
+        self.window?.makeKeyAndVisible()
+        var storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        if((NSUserDefaults.standardUserDefaults().objectForKey("advertisement")) == nil){
+             NSUserDefaults.standardUserDefaults().setObject(1, forKey: "advertisement")
+            var viewController = AdvertisementViewController(nibName: String?("AdvertisementViewController"), bundle: NSBundle.mainBundle())
+            var navController = UINavigationController(rootViewController: viewController)
+            navController.setNavigationBarHidden(true, animated: false)
+            self.window?.rootViewController = navController
+            
+        }else{
+            self.window?.rootViewController = storyboard.instantiateInitialViewController() as? UIViewController
+        }
         return true
     }
 
